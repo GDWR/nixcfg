@@ -58,6 +58,12 @@
   };
   programs.nushell.enable = true;
   programs.vscode.enable = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    vimAlias = true;
+    viAlias = true;
+  };
 
   # Set background image
   dconf.settings = {
