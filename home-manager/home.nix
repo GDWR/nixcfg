@@ -51,6 +51,13 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
+  programs.firefox.enable = true;
+  programs.starship = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
+  programs.nushell.enable = true;
+  programs.vscode.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
