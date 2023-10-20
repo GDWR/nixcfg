@@ -1,6 +1,7 @@
-{  inputs, lib,  config,  pkgs,  ... }: {
+{  inputs, outputs, lib, config,  pkgs,  ... }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   nixpkgs = {
@@ -50,6 +51,14 @@
     gdwr = {
       isNormalUser = true;
       extraGroups = ["wheel"];
+    };
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      gdwr = import ../home-manager/home.nix;
     };
   };
 
