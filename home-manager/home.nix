@@ -59,6 +59,17 @@
   programs.nushell.enable = true;
   programs.vscode.enable = true;
 
+  # Set background image
+  dconf.settings = {
+    "org/gnome/desktop/background" = {
+        "picture-uri" = "/home/gdwr/.background";
+    };
+    "org/gnome/desktop/screensaver" = {
+        "picture-uri" = "/home/gdwr/.background";
+    };
+  };
+  home.file.".background".source = ./backgrounds/firewatch.jpg;
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
