@@ -42,7 +42,8 @@
 
   networking.hostName = "desktop";
   boot.loader.systemd-boot.enable = true;
-
+  virtualisation.docker.enable = true;
+  
   users.users = {
     work = {
       isNormalUser = true;
