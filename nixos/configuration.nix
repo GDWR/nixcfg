@@ -51,7 +51,7 @@
     };
     gdwr = {
       isNormalUser = true;
-      extraGroups = ["wheel"];
+      extraGroups = ["docker" "wheel"];
     };
   };
 
