@@ -21,6 +21,7 @@
       pkgs.discord
       pkgs.helix
       pkgs.ncdu
+      pkgs.spotify
       pkgs.teams-for-linux
     ];
   };
