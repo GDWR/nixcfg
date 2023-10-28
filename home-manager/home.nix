@@ -3,6 +3,8 @@
     ./git.nix
     ./gnome.nix
     ./neovim.nix
+    ./nushell.nix
+    ./starship.nix
     ./vscode.nix
   ];
 
@@ -29,12 +31,6 @@
 
   programs.home-manager.enable = true;
   programs.firefox.enable = true;
-  programs.starship = {
-    enable = true;
-    enableNushellIntegration = true;
-  };
-  programs.nushell.enable = true;
-
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 

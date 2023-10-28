@@ -49,6 +49,7 @@
   
   users.users = {
     gdwr = {
+      shell = pkgs.nushell;
       isNormalUser = true;
       extraGroups = ["docker" "wheel"];
     };
