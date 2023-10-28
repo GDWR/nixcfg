@@ -24,6 +24,8 @@
  };
 
   nix = {
+    optimise.automatic = true;
+
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
     registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
@@ -42,6 +44,7 @@
 
   networking.hostName = "desktop";
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
   virtualisation.docker.enable = true;
   
   users.users = {
