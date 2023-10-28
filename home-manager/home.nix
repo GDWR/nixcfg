@@ -20,6 +20,7 @@
     packages = [
       pkgs.discord
       pkgs.helix
+      pkgs.ncdu
       pkgs.teams-for-linux
     ];
   };
