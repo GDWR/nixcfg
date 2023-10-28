@@ -7,6 +7,7 @@
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       vscodevim.vim
+      jnoortheen.nix-ide
     ];
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.userSettings
     userSettings = {
