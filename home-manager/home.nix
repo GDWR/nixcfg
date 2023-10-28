@@ -21,6 +21,7 @@
     username = "gdwr";
     homeDirectory = "/home/gdwr";
     packages = [
+      pkgs.google-chrome
       pkgs.discord
       pkgs.helix
       pkgs.ncdu
