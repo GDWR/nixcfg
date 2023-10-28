@@ -45,10 +45,6 @@
   virtualisation.docker.enable = true;
   
   users.users = {
-    work = {
-      isNormalUser = true;
-      initialPassword = "work";
-    };
     gdwr = {
       isNormalUser = true;
       extraGroups = ["docker" "wheel"];
