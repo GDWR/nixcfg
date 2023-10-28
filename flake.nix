@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs: let
+  outputs = { self, nixpkgs, ... } @ inputs: let
     inherit (self) outputs;
   in {
     nixosConfigurations = {

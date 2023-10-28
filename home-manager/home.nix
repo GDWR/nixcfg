@@ -1,4 +1,4 @@
-{  inputs,  lib,  config,  pkgs,  ... }: {
+{  config,  pkgs,  ... }: {
   imports = [
     ./git.nix
     ./gnome.nix
