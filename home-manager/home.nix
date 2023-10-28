@@ -14,6 +14,11 @@
   home = {
     username = "gdwr";
     homeDirectory = "/home/gdwr";
+    packages = [
+      pkgs.discord
+      pkgs.helix
+      pkgs.teams-for-linux
+    ];
   };
 
   programs.home-manager.enable = true;
