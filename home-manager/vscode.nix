@@ -8,5 +8,9 @@
       bbenoist.nix
       vscodevim.vim
     ];
+    userSettings = {
+      "files.autoSave" = "onFocusChange";
+      "window.titleBarStyle" = "custom";
+    };
   };
 }
