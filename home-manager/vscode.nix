@@ -10,16 +10,19 @@
     ];
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.userSettings
     userSettings = {
+      "debug.toolBarLocation" = "docked";
+      "git.autofetch" = true;
+      "explorer.autoReveal" = true;
       "files.autoSave" = "onFocusChange";
       "window.titleBarStyle" = "custom";
-      "git.autofetch" = true;
+
       "editor.minimap.enabled" = false;
       "editor.smoothScrolling" = true;
       "editor.mouseWheelZoom" = true;
-      "editor.fontLigatures" = true;
-      "explorer.autoReveal" = true;
-      "debug.toolBarLocation" = "docked";
+      "editor.fontLigatures" = true; 
+      "editor.fontFamily" = "JetBrains Mono";
 
+      "terminal.integrated.fontFamily" = "JetBrains Mono";
       "terminal.integrated.defaultProfile.linux" = "nu";
       "terminal.integrated.profiles.linux" = {
         "nu" = {
