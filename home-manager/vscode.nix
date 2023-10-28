@@ -15,6 +15,8 @@
       "explorer.autoReveal" = true;
       "files.autoSave" = "onFocusChange";
       "window.titleBarStyle" = "custom";
+      "workbench.tree.indent" = 18;
+      "workbench.tree.renderIndentGuides" = "always";
 
       "editor.minimap.enabled" = false;
       "editor.smoothScrolling" = true;
