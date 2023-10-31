@@ -18,5 +18,8 @@
         modules = [./nixos/configuration.nix];
       };
     };
+
+    # TODO: refactor for all architectures
+    packages.x86_64-linux.krisp = nixpkgs.legacyPackages.x86_64-linux.callPackage ./packages/krisp-patch { pkgs = nixpkgs.legacyPackages.x86_64-linux; };
   };
 }
