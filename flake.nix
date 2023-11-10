@@ -1,5 +1,5 @@
 {
-  description = "GDWR's NixOS configuration";
+  description = "GDWR's Nix Configs";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -9,17 +9,17 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ inputs: let
-    inherit (self) outputs;
-  in {
+  outputs = { self, nixpkgs, flake-utils, ... }@inputs: {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs;};
         modules = [./nixos/configuration.nix];
       };
     };
 
-    # TODO: refactor for all architectures
-    packages.x86_64-linux.krisp-patch = nixpkgs.legacyPackages.x86_64-linux.callPackage ./packages/krisp-patch { pkgs = nixpkgs.legacyPackages.x86_64-linux; };
+    packages = {
+      x86_64-linux.krisp-patch = nixpkgs.legacyPackages.x86_64-linux.callPackage ./packages/krisp-patch { pkgs = nixpkgs.legacyPackages.x86_64-linux; };
+      aarch64-linux.krisp-patch = nixpkgs.legacyPackages.aarch64-linux.callPackage ./packages/krisp-patch { pkgs = nixpkgs.legacyPackages.aarch64-linux; };
+    };
   };
 }
