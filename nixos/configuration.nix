@@ -87,7 +87,6 @@
     yelp        # help viewer
     evince      # document viewer
     geary       # email client
-    seahorse    # password manager
   
     # these should be self explanatory
     gnome-calculator
