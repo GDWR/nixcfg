@@ -20,13 +20,17 @@
   home = {
     username = "gdwr";
     homeDirectory = "/home/gdwr";
-    packages = [
-      pkgs.google-chrome
-      pkgs.discord
-      pkgs.helix
-      pkgs.ncdu
-      pkgs.spotify
-      pkgs.teams-for-linux
+    packages = with pkgs; [
+      google-chrome
+      discord
+      helix
+      ncdu
+      spotify
+      teams-for-linux
+      jetbrains.webstorm
+      jetbrains.rider
+      jetbrains.pycharm-professional
+      jetbrains.goland
     ];
   };
 
