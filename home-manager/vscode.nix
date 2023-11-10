@@ -8,7 +8,9 @@
       vscodevim.vim
       jnoortheen.nix-ide
       github.copilot
+      ms-vscode-remote.remote-containers
     ];
+
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.userSettings
     userSettings = {
       "debug.toolBarLocation" = "docked";

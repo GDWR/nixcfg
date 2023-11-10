@@ -72,6 +72,8 @@
     videoDrivers = ["nvidia"];
     excludePackages = [ pkgs.xterm ]; # Exclude xterm application
   };
+
+  services.gnome.gnome-keyring.enable = true;
   
   # Exclude Default Gnome Apps
   environment.gnome.excludePackages = with pkgs.gnome; [
