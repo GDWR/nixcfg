@@ -28,9 +28,14 @@
       spotify
       teams-for-linux
       jetbrains.webstorm
+
       jetbrains.rider
-      msbuild
+      dotnet-sdk_8
+
       jetbrains.pycharm-professional
+      python311
+      pdm
+
       jetbrains.goland
     ];
   };
