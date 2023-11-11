@@ -29,6 +29,7 @@
       teams-for-linux
       jetbrains.webstorm
       jetbrains.rider
+      msbuild
       jetbrains.pycharm-professional
       jetbrains.goland
     ];
