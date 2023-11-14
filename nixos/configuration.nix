@@ -74,7 +74,15 @@
   };
 
   services.gnome.gnome-keyring.enable = true;
-  
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "gnome3";
+  };
+
+  environment.systemPackages = with pkgs; [
+    pinentry
+  ];
+
   # Exclude Default Gnome Apps
   environment.gnome.excludePackages = with pkgs.gnome; [
     baobab      # disk usage analyzer
