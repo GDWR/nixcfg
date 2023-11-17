@@ -5,7 +5,10 @@
     extraConfig = ''
       $env.config = {
         show_banner: false,
-       } 
+       }
+
+       alias d = docker
+       alias dc = docker compose
     '';
   };
 
