@@ -32,7 +32,7 @@
       jetbrains.rider
       dotnet-sdk_8
 
-      jetbrains.pycharm-professional
+      (jetbrains.plugins.addPlugins jetbrains.pycharm-professional [ "17718" ])
       python311
       pdm
 
