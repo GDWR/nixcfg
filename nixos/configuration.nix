@@ -4,24 +4,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
- 
-    # You can add overlays here
-    overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
- };
+  nixpkgs.config.allowUnfree = true;
 
   nix = {
     optimise.automatic = true;
@@ -79,9 +62,16 @@
     pinentryFlavor = "gnome3";
   };
 
-  environment.systemPackages = with pkgs; [
-    pinentry
+  environment.systemPackages = [
+    pkgs.pinentry
+    pkgs.stdenv.cc.cc
   ];
+
+  environment.sessionVariables = {
+    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+      pkgs.stdenv.cc.cc
+    ];
+  };
 
   # Exclude Default Gnome Apps
   environment.gnome.excludePackages = with pkgs.gnome; [
