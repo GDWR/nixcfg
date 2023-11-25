@@ -28,12 +28,15 @@
       spotify
       teams-for-linux
 
-      (jetbrains.plugins.addPlugins jetbrains.webstorm [ "17718" ])
+            (jetbrains.plugins.addPlugins jetbrains.webstorm [ "17718" ])
       (jetbrains.plugins.addPlugins jetbrains.rust-rover [ "17718" ])
 
       (jetbrains.plugins.addPlugins jetbrains.rider [ "17718" ])
-      msbuild
-      dotnet-sdk_8
+      mono
+      (with dotnetCorePackages; combinePackages [
+        sdk_6_0
+        sdk_8_0
+      ])
 
       (jetbrains.plugins.addPlugins jetbrains.pycharm-professional [ "17718" ])
       python312
@@ -41,8 +44,6 @@
 
       (jetbrains.plugins.addPlugins jetbrains.goland [ "17718" ])
       (jetbrains.plugins.addPlugins jetbrains.idea-ultimate [ "17718" ])
-
-
     ];
   };
 
