@@ -28,7 +28,8 @@
       spotify
       teams-for-linux
 
-            (jetbrains.plugins.addPlugins jetbrains.webstorm [ "17718" ])
+      (jetbrains.plugins.addPlugins jetbrains.clion [ "17718" ])
+      (jetbrains.plugins.addPlugins jetbrains.webstorm [ "17718" ])
       (jetbrains.plugins.addPlugins jetbrains.rust-rover [ "17718" ])
 
       (jetbrains.plugins.addPlugins jetbrains.rider [ "17718" ])
