@@ -21,6 +21,7 @@
     username = "gdwr";
     homeDirectory = "/home/gdwr";
     packages = with pkgs; [
+      btop
       google-chrome
       discord
       helix
