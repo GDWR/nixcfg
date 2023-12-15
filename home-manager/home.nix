@@ -32,13 +32,8 @@
       (jetbrains.plugins.addPlugins jetbrains.clion [ "17718" ])
       (jetbrains.plugins.addPlugins jetbrains.webstorm [ "17718" ])
       (jetbrains.plugins.addPlugins jetbrains.rust-rover [ "17718" ])
-
       (jetbrains.plugins.addPlugins jetbrains.rider [ "17718" ])
-      mono
-      (with dotnetCorePackages; combinePackages [
-        sdk_6_0
-        sdk_8_0
-      ])
+      dotnet-sdk_8
 
       (jetbrains.plugins.addPlugins jetbrains.pycharm-professional [ "17718" ])
       python312
