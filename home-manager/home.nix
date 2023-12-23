@@ -1,4 +1,21 @@
-{  config, pkgs, ... }: {
+{  config, pkgs, ... }:
+let 
+    dotnet-combined = (with pkgs.dotnetCorePackages; combinePackages [
+      sdk_8_0
+      sdk_6_0
+    ]).overrideAttrs (finalAttrs: previousAttrs: {
+      postBuild = (previousAttrs.postBuild or '''') + ''
+
+        for i in $out/sdk/*
+        do
+          i=$(basename $i)
+          mkdir -p $out/metadata/workloads/''${i/-*}
+          touch $out/metadata/workloads/''${i/-*}/userlocal
+        done
+      '';
+    });
+  in
+{
   imports = [
     ./git.nix
     ./gnome.nix
@@ -31,9 +48,11 @@
 
       (jetbrains.plugins.addPlugins jetbrains.clion [ "17718" ])
       (jetbrains.plugins.addPlugins jetbrains.webstorm [ "17718" ])
+      nodejs_20.pkgs.yarn
+      
       (jetbrains.plugins.addPlugins jetbrains.rust-rover [ "17718" ])
       (jetbrains.plugins.addPlugins jetbrains.rider [ "17718" ])
-      dotnet-sdk_8
+      dotnet-combined
 
       (jetbrains.plugins.addPlugins jetbrains.pycharm-professional [ "17718" ])
       python312
@@ -42,6 +61,10 @@
       (jetbrains.plugins.addPlugins jetbrains.goland [ "17718" ])
       (jetbrains.plugins.addPlugins jetbrains.idea-ultimate [ "17718" ])
     ];
+  };
+
+  home.sessionVariables = {
+    DOTNET_ROOT = "${dotnet-combined}";
   };
 
   programs.home-manager.enable = true;
