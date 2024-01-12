@@ -45,6 +45,7 @@ let
       ncdu
       spotify
       teams-for-linux
+      unityhub
 
       (jetbrains.plugins.addPlugins jetbrains.clion [ "17718" ])
       (jetbrains.plugins.addPlugins jetbrains.webstorm [ "17718" ])
