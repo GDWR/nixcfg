@@ -54,7 +54,8 @@ let
       (jetbrains.plugins.addPlugins jetbrains.rust-rover [ "17718" ])
       (jetbrains.plugins.addPlugins jetbrains.rider [ "17718" ])
       dotnet-combined
-
+      mono
+      
       (jetbrains.plugins.addPlugins jetbrains.pycharm-professional [ "17718" ])
       python312
       pdm
