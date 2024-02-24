@@ -2,6 +2,9 @@
 { ... }: {
   programs.nushell = {
     enable = true;
+    environmentVariables = {
+      EDITOR = "nvim";
+    };
     extraConfig = ''
       $env.config = {
         show_banner: false,
