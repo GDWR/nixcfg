@@ -31,6 +31,7 @@
       spotify
       teams-for-linux
       tmux
+      nom
     ];
   };
 
