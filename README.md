@@ -16,7 +16,5 @@ https://github.com/NixOS/nixpkgs/issues/195512
 
 
 ## Resources
-
-- [starter config](https://github.com/Misterio77/nix-starter-configs/tree/main) 
 - [Nix Search](https://search.nixos.org)
 - [HomeManager Search](https://mipmip.github.io/home-manager-option-search)
