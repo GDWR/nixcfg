@@ -31,7 +31,7 @@
       spotify
       teams-for-linux
       tmux
-      nom
+      nix-output-monitor
     ];
   };
 
