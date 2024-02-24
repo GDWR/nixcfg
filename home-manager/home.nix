@@ -1,24 +1,9 @@
-{  config, pkgs, ... }:
-let 
-    dotnet-combined = (with pkgs.dotnetCorePackages; combinePackages [
-      sdk_8_0
-      sdk_6_0
-    ]).overrideAttrs (finalAttrs: previousAttrs: {
-      postBuild = (previousAttrs.postBuild or '''') + ''
-
-        for i in $out/sdk/*
-        do
-          i=$(basename $i)
-          mkdir -p $out/metadata/workloads/''${i/-*}
-          touch $out/metadata/workloads/''${i/-*}/userlocal
-        done
-      '';
-    });
-  in
+{  config, pkgs, inputs, ... }:
 {
   imports = [
     ./git.nix
     ./gnome.nix
+    ./jetbrains.nix
     ./neovim.nix
     ./nushell.nix
     ./starship.nix
@@ -38,35 +23,15 @@ let
     username = "gdwr";
     homeDirectory = "/home/gdwr";
     packages = with pkgs; [
+      inputs.plate.packages.x86_64-linux.plate
       btop
       google-chrome
       discord
-      helix
       ncdu
       spotify
       teams-for-linux
-      unityhub
-
-      (jetbrains.plugins.addPlugins jetbrains.clion [ "17718" ])
-      (jetbrains.plugins.addPlugins jetbrains.webstorm [ "17718" ])
-      nodejs_20.pkgs.yarn
-      
-      (jetbrains.plugins.addPlugins jetbrains.rust-rover [ "17718" ])
-      (jetbrains.plugins.addPlugins jetbrains.rider [ "17718" ])
-      dotnet-combined
-      mono
-      
-      (jetbrains.plugins.addPlugins jetbrains.pycharm-professional [ "17718" ])
-      python312
-      pdm
-
-      (jetbrains.plugins.addPlugins jetbrains.goland [ "17718" ])
-      (jetbrains.plugins.addPlugins jetbrains.idea-ultimate [ "17718" ])
+      tmux
     ];
-  };
-
-  home.sessionVariables = {
-    DOTNET_ROOT = "${dotnet-combined}";
   };
 
   programs.home-manager.enable = true;
