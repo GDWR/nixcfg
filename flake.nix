@@ -23,7 +23,11 @@
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
-        modules = [./nixos/configuration.nix];
+        modules = [./hosts/desktop/configuration.nix];
+      };
+      laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [./hosts/laptop/configuration.nix];
       };
     };
 

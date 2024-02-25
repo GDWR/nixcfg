@@ -22,6 +22,8 @@
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
+
+      trusted-users = ["root" "gdwr"];
     };
   };
 
@@ -43,7 +45,7 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      gdwr = import ../home-manager/home.nix;
+      gdwr = import ../../home-manager/home.nix;
     };
   };
 
