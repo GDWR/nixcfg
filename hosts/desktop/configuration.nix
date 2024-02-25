@@ -66,6 +66,7 @@
   environment.systemPackages = [
     pkgs.pinentry
     pkgs.stdenv.cc.cc
+    inputs.agenix.packages.x86_64-linux.default
   ];
 
   environment.sessionVariables = {
