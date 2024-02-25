@@ -49,6 +49,12 @@
     };
   };
 
+  age.identityPaths = [ "/home/gdwr/.ssh/id_rsa" ];
+  age.secrets.gdwr = {
+    file = ../../secrets/gdwr.age;
+    path = "/etc/secrets/gdwr";
+  };
+
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;

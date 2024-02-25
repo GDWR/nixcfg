@@ -17,7 +17,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: let
+  outputs = { self, nixpkgs, agenix, ... }@inputs: let
     forAllSystems = function:
       nixpkgs.lib.genAttrs [
         "x86_64-linux"
@@ -27,11 +27,17 @@
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
-        modules = [./hosts/desktop/configuration.nix];
+        modules = [
+          ./hosts/desktop/configuration.nix
+          agenix.nixosModules.default
+        ];
       };
       laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
-        modules = [./hosts/laptop/configuration.nix];
+        modules = [
+          ./hosts/laptop/configuration.nix
+          agenix.nixosModules.default
+        ];
       };
     };
 
