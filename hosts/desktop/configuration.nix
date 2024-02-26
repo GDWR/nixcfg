@@ -1,7 +1,8 @@
 {  inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.home-manager
+    inputs.home-manager.nixosModules.default
+    inputs.agenix.nixosModules.default
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -41,13 +42,13 @@
     };
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      # Import your home-manager configuration
-      gdwr = import ../../home-manager/home.nix;
-    };
-  };
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs outputs; };
+  #   users = {
+  #     # Import your home-manager configuration
+  #     gdwr = import ../../home-manager/home.nix;
+  #   };
+  # };
 
   age.identityPaths = [ "/home/gdwr/.ssh/id_rsa" ];
   age.secrets.gdwr = {
