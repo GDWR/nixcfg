@@ -19,11 +19,10 @@
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
-      trusted-users = ["root" "gdwr"];  
+      trusted-users = [ "root" "gdwr" ];  
     };
   };
 
-  nixpkgs.hostPlatform = "aarch64-linux";
   hardware.nvidia-jetpack.enable = true;
   hardware.nvidia-jetpack.som = "xavier-agx"; # Other options include orin-agx, xavier-nx, and xavier-nx-emmc
   hardware.nvidia-jetpack.carrierBoard = "devkit";
@@ -40,24 +39,12 @@
 
   programs.dconf.enable = true;
 
-  environment.systemPackages = [ 
-    inputs.jetpack.legacyPackages.aarch64-linux.debs.common."deepstream-6.2"
-  ];
-
-
   users.users = {
     gdwr = {
       shell = pkgs.nushell;
       password = "gdwr";
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" ];
-    };
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      gdwr = import ../../home-manager/home.nix;
     };
   };
 

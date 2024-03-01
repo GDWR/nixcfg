@@ -2,10 +2,9 @@
   description = "GDWR's Nix Configs";
 
   inputs = {
-    nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs2311.url = "github:nixos/nixpkgs/nixos-23.11";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +23,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, agenix, jetpack, home-manager, ... }@inputs: let
+  outputs = { self, nixpkgs, ... }@inputs: let
     forAllSystems = function:
       nixpkgs.lib.genAttrs [
         "x86_64-linux"
