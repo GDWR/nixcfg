@@ -1,6 +1,4 @@
 { pkgs, ... }: {
-  programs.direnv.enable = true;  # Used by a vscode plugin
-
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
@@ -9,6 +7,7 @@
       jnoortheen.nix-ide
       github.copilot
       ms-vscode-remote.remote-containers
+      rust-analyzer
     ];
 
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.userSettings

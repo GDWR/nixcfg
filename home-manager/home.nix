@@ -38,6 +38,7 @@
     ];
   };
 
+  programs.direnv.enable = true;
   programs.home-manager.enable = true;
   programs.firefox.enable = true;
   # Nicely reload system units when changing configs
