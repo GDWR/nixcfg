@@ -1,13 +1,14 @@
 { pkgs, ... }: {
   programs.vscode = {
     enable = true;
+
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       vscodevim.vim
       jnoortheen.nix-ide
       github.copilot
       ms-vscode-remote.remote-containers
-      rust-analyzer
+      rust-lang.rust-analyzer
     ];
 
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.userSettings
