@@ -33,6 +33,7 @@
   boot.loader.systemd-boot.configurationLimit = 5;
   virtualisation.docker.enable = true;
   virtualisation.docker.enableNvidia = true;
+  programs.nix-ld.enable = true;
   
   users.users = {
     gdwr = {
@@ -42,13 +43,13 @@
     };
   };
 
-  # home-manager = {
-  #   extraSpecialArgs = { inherit inputs outputs; };
-  #   users = {
-  #     # Import your home-manager configuration
-  #     gdwr = import ../../home-manager/home.nix;
-  #   };
-  # };
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      gdwr = import ../../home-manager/home.nix;
+    };
+  };
 
   age.identityPaths = [ "/home/gdwr/.ssh/id_rsa" ];
   age.secrets.gdwr = {
