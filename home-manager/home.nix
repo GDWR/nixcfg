@@ -32,6 +32,7 @@
       teams-for-linux
       tmux
       nix-output-monitor
+      fzf
 
       dotnet-sdk_8
       mono
