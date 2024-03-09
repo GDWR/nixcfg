@@ -9,6 +9,7 @@
       github.copilot
       ms-vscode-remote.remote-containers
       rust-lang.rust-analyzer
+      vadimcn.vscode-lldb
     ];
 
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.userSettings
