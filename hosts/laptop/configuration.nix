@@ -43,7 +43,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
-      gdwr = import ../../home-manager/home.nix;
+      gdwr = import ../../home-manager;
     };
   };
 
