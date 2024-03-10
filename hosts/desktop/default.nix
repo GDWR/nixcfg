@@ -107,6 +107,7 @@
 
   environment.sessionVariables = {
     LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
+    NIXOS_OZONE_WL = "1";
   };
 
   # Exclude Default Gnome Apps
