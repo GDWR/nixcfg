@@ -1,4 +1,4 @@
-{  inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
@@ -6,7 +6,7 @@
     inputs.agenix.nixosModules.default
   ];
 
-  nixpkgs.overlays = [ 
+  nixpkgs.overlays = [
     # patch openvino to avoid compilation errors
     #  https://github.com/NixOS/nixpkgs/pull/288136
     (final: prev: {
@@ -56,23 +56,25 @@
     optimise.automatic = true;
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
+      config.nix.registry;
     settings = {
       # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
-      trusted-users = [ "root" "gdwr" ];  
+      trusted-users = [ "root" "gdwr" ];
     };
   };
 
   networking.hostName = "xavier";
 
   hardware.nvidia-jetpack.enable = true;
-  hardware.nvidia-jetpack.som = "xavier-agx"; # Other options include orin-agx, xavier-nx, and xavier-nx-emmc
+  hardware.nvidia-jetpack.som =
+    "xavier-agx"; # Other options include orin-agx, xavier-nx, and xavier-nx-emmc
   hardware.nvidia-jetpack.carrierBoard = "devkit";
   hardware.enableAllFirmware = true;
   services.nvfancontrol.enable = true;
@@ -87,7 +89,9 @@
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.substituters = [ "https://cuda-maintainers.cachix.org" ];
-  nix.settings.trusted-public-keys = [ "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E=" ];
+  nix.settings.trusted-public-keys = [
+    "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+  ];
 
   programs.dconf.enable = true;
 
@@ -102,18 +106,14 @@
 
     settings = {
       mqtt.enabled = false;
-      record = {
-        enabled = true;
-      };
+      record = { enabled = true; };
       ffmpeg.hwaccel_args = "preset-jetson-h264";
       cameras."driveway" = {
-        ffmpeg.inputs = [ {
-          path = builtins.readFile config.age.secrets.driveway.path; # This is documented as bad practice, but it's the only way to get the secret into the config
-          roles = [
-            "record"
-            "detect"
-          ];
-        } ];
+        ffmpeg.inputs = [{
+          path = builtins.readFile
+            config.age.secrets.driveway.path; # This is documented as bad practice, but it's the only way to get the secret into the config
+          roles = [ "record" "detect" ];
+        }];
       };
     };
   };

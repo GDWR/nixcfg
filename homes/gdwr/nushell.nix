@@ -2,9 +2,7 @@
 { ... }: {
   programs.nushell = {
     enable = true;
-    environmentVariables = {
-      EDITOR = "nvim";
-    };
+    environmentVariables = { EDITOR = "nvim"; };
     extraConfig = ''
       $env.config = {
         show_banner: false,
@@ -38,6 +36,6 @@
   programs.direnv = {
     enable = true;
     enableNushellIntegration = true;
-    nix-direnv.enable  = true;
+    nix-direnv.enable = true;
   };
 }

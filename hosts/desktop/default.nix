@@ -1,4 +1,4 @@
-{  inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
@@ -12,11 +12,12 @@
 
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
+      config.nix.registry;
 
     settings = {
       # Enable flakes and new 'nix' command
@@ -24,7 +25,7 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
 
-      trusted-users = ["root" "gdwr"];
+      trusted-users = [ "root" "gdwr" ];
     };
   };
 
@@ -34,16 +35,14 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.enableNvidia = true;
   programs.nix-ld.enable = true;
-  
-  boot.binfmt.emulatedSystems = [
-    "aarch64-linux"
-  ];
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   users.users = {
     gdwr = {
       shell = pkgs.nushell;
       isNormalUser = true;
-      extraGroups = ["docker" "wheel"];
+      extraGroups = [ "docker" "wheel" ];
     };
   };
 
@@ -65,7 +64,7 @@
     enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-    videoDrivers = ["nvidia"];
+    videoDrivers = [ "nvidia" ];
     excludePackages = [ pkgs.xterm ]; # Exclude xterm application
   };
 
@@ -82,23 +81,21 @@
   ];
 
   environment.sessionVariables = {
-    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
-      pkgs.stdenv.cc.cc
-    ];
+    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
   };
 
   # Exclude Default Gnome Apps
   environment.gnome.excludePackages = with pkgs.gnome; [
-    baobab      # disk usage analyzer
-    cheese      # photo booth
-    eog         # image viewer
-    epiphany    # web browser
+    baobab # disk usage analyzer
+    cheese # photo booth
+    eog # image viewer
+    epiphany # web browser
     simple-scan # document scanner
-    totem       # video player
-    yelp        # help viewer
-    evince      # document viewer
-    geary       # email client
-  
+    totem # video player
+    yelp # help viewer
+    evince # document viewer
+    geary # email client
+
     # these should be self explanatory
     gnome-calculator
     gnome-calendar
@@ -116,10 +113,7 @@
     pkgs.gnome-connections
   ];
 
-  fonts.packages = with pkgs; [
-    jetbrains-mono
-    nerdfonts
-  ];
+  fonts.packages = with pkgs; [ jetbrains-mono nerdfonts ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

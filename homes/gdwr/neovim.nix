@@ -12,7 +12,5 @@
     '';
   };
 
-  home.packages = with pkgs; [
-    neovide
-  ];
+  home.packages = with pkgs; [ neovide ];
 }

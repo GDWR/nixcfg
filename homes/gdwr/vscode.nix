@@ -27,15 +27,13 @@
       "editor.minimap.enabled" = false;
       "editor.smoothScrolling" = true;
       "editor.mouseWheelZoom" = true;
-      "editor.fontLigatures" = true; 
+      "editor.fontLigatures" = true;
       "editor.fontFamily" = "JetBrains Mono";
 
       "terminal.integrated.fontFamily" = "JetBrains Mono";
       "terminal.integrated.defaultProfile.linux" = "nu";
       "terminal.integrated.profiles.linux" = {
-        "nu" = {
-          "path" = "/home/gdwr/.nix-profile/bin/nu";
-        };
+        "nu" = { "path" = "/home/gdwr/.nix-profile/bin/nu"; };
       };
     };
   };

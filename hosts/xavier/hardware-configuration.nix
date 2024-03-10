@@ -4,29 +4,27 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd.availableKernelModules = [ "nvme" "ahci" "usbhid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/1be42720-f662-44a1-97f7-e1293875603a";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/1be42720-f662-44a1-97f7-e1293875603a";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/FE94-087B";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/FE94-087B";
+    fsType = "vfat";
+  };
 
-  fileSystems."/opt/nvidia/esp" =
-    { device = "/dev/disk/by-uuid/EDBF-4006";
-      fsType = "vfat";
-    };
+  fileSystems."/opt/nvidia/esp" = {
+    device = "/dev/disk/by-uuid/EDBF-4006";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 
