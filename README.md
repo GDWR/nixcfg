@@ -1,24 +1,29 @@
-# NixOS Configuration
+GDWR's Nix Flake
+================
 
-## Quickstart
-Install host: `nixos-rebuild switch --flake github:gdwr/nixcfg#desktop`
+Quickstart
+----------
+See flake outputs: `nix flake show github:gdwr/nixcfg` \
+Install host: `nixos-rebuild switch --flake github:gdwr/nixcfg#desktop` \
 Run package: `nix run github:gdwr#krisp-patch`
 
-## Repository Layout
+Repository Layout
+-----------------
 ```yaml
 ├── assets           # Data files uses within configurations or repository
-├── homes            # Use homes, utilizing home-manager (user login defined on host, TBD best way to do this)
+├── homes            # Elementary, my dear Watson. Homes utilizing home-manager
 │   └── gdwr         # Hey! Thats me. Full fat, desktop environment. 
-├── hosts            # Actual system, hardware/system configurations
+├── hosts            # Actual systems, hardware/system configurations
 │   ├── desktop      # By name and by nature, x86 AMD + Nvidia GPU
 │   ├── laptop       # By name and by nature, x86 Intel
 │   └── xavier       # Nvidia Jetson Xaiver, ARM64 + Nvidia specialized GPU
-├── packages         # Exported nix flake packages, `nix run github:gdwr/nixcfg#packageName
+├── packages         # Exported nix flake packages, `nix run github:gdwr/nixcfg#packageName`
 │   └── krisp-patch  # Patch discord krisp to navigate around DRM disabling.
 └── secrets          # agenix managed secrets
 ```
 
-## Resources
+Resources
+---------
 - [Nix Search](https://search.nixos.org)
 - [HomeManager Search](https://mipmip.github.io/home-manager-option-search)
 - [MatthewCroughan/nixcfg](https://github.com/MatthewCroughan/nixcfg)
