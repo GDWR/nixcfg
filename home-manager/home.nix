@@ -6,6 +6,7 @@
     ./jetbrains.nix
     ./neovim.nix
     ./nushell.nix
+    ./tmux.nix
     ./vscode.nix
   ];
 
@@ -29,7 +30,6 @@
       ncdu
       spotify
       teams-for-linux
-      tmux
       nix-output-monitor
       fzf
 
