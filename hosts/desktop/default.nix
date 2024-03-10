@@ -46,6 +46,7 @@
   ];
 
   networking.hostName = "desktop";
+  systemd.targets.hibernate.enable = false;
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
   virtualisation.docker.enable = true;
