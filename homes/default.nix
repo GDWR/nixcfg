@@ -1,0 +1,3 @@
+{
+  gdwr = import ./gdwr;
+}

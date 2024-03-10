@@ -51,7 +51,7 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      gdwr = import ../../home-manager;
+      gdwr = import ../../homes/gdwr;
     };
   };
 
