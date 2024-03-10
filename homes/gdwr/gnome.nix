@@ -27,16 +27,4 @@
         };
     };
   };
-
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Papirus";
-      package = pkgs.papirus-icon-theme;
-    };
-    cursorTheme = {
-      name = "Vimix";
-      package = pkgs.vimix-cursor-theme;
-    };
-  };
 }
