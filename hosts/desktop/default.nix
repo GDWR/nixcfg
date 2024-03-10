@@ -82,7 +82,10 @@
       enable = true;
       wayland = true;
     };
-    desktopManager.gnome.enable = true;
+    desktopManager = {
+      default = "gnome";
+      gnome.enable = true;
+    };
     videoDrivers = [ "nvidia" ];
     excludePackages = [ pkgs.xterm ]; # Exclude xterm application
   };
