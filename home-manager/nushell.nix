@@ -24,6 +24,9 @@
 
       alias d = docker
       alias dc = docker compose
+      alias t = tmux
+      alias e = nvim
+      alias n = nvim
     '';
   };
 
