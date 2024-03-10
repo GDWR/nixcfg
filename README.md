@@ -6,6 +6,7 @@ Run package: `nix run github:gdwr#krisp-patch`
 
 ## Repository Layout
 ```yaml
+├── assets           # Data files uses within configurations or repository
 ├── homes            # Use homes, utilizing home-manager (user login defined on host, TBD best way to do this)
 │   └── gdwr         # Hey! Thats me. Full fat, desktop environment. 
 ├── hosts            # Actual system, hardware/system configurations
