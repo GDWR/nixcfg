@@ -50,5 +50,7 @@
     packages = forAllSystems(pkgs: {
       krisp-patch = pkgs.callPackage ./packages/krisp-patch { inherit pkgs; };
     });
+
+    formatter = forAllSystems (pkgs: pkgs.nixfmt);
   };
 }
