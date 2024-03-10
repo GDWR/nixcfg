@@ -1,6 +1,7 @@
 # Gnome is installed by the system, this just manages config
 { ... }: {
   home.file.".background".source = ../../assets/firewatch.jpg;
+  home.file.".face".source = ../../assets/gdwr.png;
   dconf.settings = {
     "org/gnome/desktop/background" = {
       "picture-uri" = "/home/gdwr/.background";
