@@ -33,17 +33,17 @@
       desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
-        modules = [./hosts/desktop/configuration.nix];
+        modules = [ ./hosts/desktop ];
       };
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
-        modules = [./hosts/laptop/configuration.nix];
+        modules = [ ./hosts/laptop ];
       };
       xavier = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = {inherit inputs;};
-        modules = [./hosts/xavier/configuration.nix];
+        modules = [ ./hosts/xavier ];
       };
     };
 
