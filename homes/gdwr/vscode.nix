@@ -8,7 +8,6 @@
       jnoortheen.nix-ide
       github.copilot
       ms-vscode-remote.remote-containers
-      ms-vscode-remote.remote-ssh
       rust-lang.rust-analyzer
       vadimcn.vscode-lldb
       cweijan.vscode-database-client2
