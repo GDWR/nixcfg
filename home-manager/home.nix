@@ -6,7 +6,6 @@
     ./jetbrains.nix
     ./neovim.nix
     ./nushell.nix
-    ./starship.nix
     ./vscode.nix
   ];
 
