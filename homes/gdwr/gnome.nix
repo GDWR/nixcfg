@@ -1,5 +1,5 @@
 # Gnome is installed by the system, this just manages config
-{ ... }: {
+{ pkgs, ... }: {
   home.file.".background".source = ../../assets/firewatch.jpg;
   home.file.".face".source = ../../assets/gdwr.png;
   dconf = {
@@ -25,6 +25,18 @@
           "command" = "kgx";
           "name" = "terminal";
         };
+    };
+  };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Morewaita-Dark";
+      package = pkgs.morewaita-icon-theme;
+    };
+    cursorTheme = {
+      name = "Vimix-Cursor";
+      package = pkgs.vimix-cursor-theme;
     };
   };
 }
