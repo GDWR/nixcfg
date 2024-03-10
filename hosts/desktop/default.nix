@@ -78,12 +78,12 @@
 
   services.xserver = {
     enable = true;
+    displayManager.defaultSession = "gnome";
     displayManager.gdm = {
       enable = true;
       wayland = true;
     };
     desktopManager = {
-      default = "gnome";
       gnome.enable = true;
     };
     videoDrivers = [ "nvidia" ];
