@@ -84,7 +84,14 @@
     excludePackages = [ pkgs.xterm ]; # Exclude xterm application
   };
 
-  services.gnome.gnome-keyring.enable = true;
+  services.gnome = {
+    tracker.enable = true;
+    tracker-miners.enable = true;
+    sushi.enable = true;
+    gnome-keyring.enable = true;
+  };
+  services.gvfs.enable = true;
+
   programs.gnupg.agent = {
     enable = true;
     pinentryFlavor = "gnome3";
