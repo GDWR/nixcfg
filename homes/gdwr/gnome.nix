@@ -31,8 +31,8 @@
   gtk = {
     enable = true;
     iconTheme = {
-      name = "Morewaita-Dark";
-      package = pkgs.morewaita-icon-theme;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
     cursorTheme = {
       name = "Vimix-Cursor";
