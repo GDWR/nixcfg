@@ -82,7 +82,7 @@
     displayManager.defaultSession = "gnome";
     displayManager.gdm = {
       enable = true;
-      wayland = true;
+      wayland = false;
     };
     desktopManager = {
       gnome.enable = true;
@@ -105,10 +105,6 @@
 
     pkgs.gnomeExtensions.tophat
   ];
-
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
 
   # Exclude Default Gnome Apps
   environment.gnome.excludePackages = with pkgs.gnome; [
