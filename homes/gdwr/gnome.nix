@@ -31,11 +31,11 @@
   gtk = {
     enable = true;
     iconTheme = {
-      name = "Papirus-Dark";
+      name = "Papirus";
       package = pkgs.papirus-icon-theme;
     };
     cursorTheme = {
-      name = "Vimix-Cursor";
+      name = "Vimix";
       package = pkgs.vimix-cursor-theme;
     };
   };
