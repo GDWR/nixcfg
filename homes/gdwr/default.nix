@@ -20,7 +20,6 @@
     packages = with pkgs; [
       inputs.plate.packages.x86_64-linux.plate
       btop
-      google-chrome
       discord
       ncdu
       spotify
