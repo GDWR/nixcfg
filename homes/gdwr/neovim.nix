@@ -4,6 +4,10 @@
     defaultEditor = true;
     vimAlias = true;
     viAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-surround
+      neo-tree-nvim
+    ];
     extraLuaConfig = ''
       vim.o.number = true
       vim.o.relativenumber = true
