@@ -49,7 +49,7 @@
   systemd.targets.hibernate.enable = false;
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
-  boot.cleanTmpDir = true;
+  boot.cleanOnBoot = true;
   virtualisation.docker.enable = true;
   virtualisation.docker.enableNvidia = true;
   programs.nix-ld.enable = true;
@@ -96,7 +96,7 @@
 
   programs.gnupg.agent = {
     enable = true;
-    pinentryFlavor = "gnome3";
+    pinentryPackage = pkgs.pinentry-gnome3;
   };
 
   environment.systemPackages = [
