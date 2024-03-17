@@ -14,6 +14,7 @@
       nvim-cmp
       copilot-vim
       nvim-lspconfig
+      gitsigns-nvim
     ];
     extraLuaConfig = ''
       vim.g.mapleader = " "
@@ -102,6 +103,9 @@
           end, opts)
         end,
       })
+
+      -- Setup & Configure gitsigns
+      require("gitsigns").setup()
     '';
   };
 }
