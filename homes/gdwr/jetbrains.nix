@@ -1,9 +1,19 @@
 { pkgs, ... }: let
+    # Copilot struggles when installing via jetbrains plugin manager
     copilotPlugin = "17718";
     plugins = [ copilotPlugin ];
+    dotnetPkg = (with pkgs.dotnetCorePackages; combinePackages [
+      sdk_8_0
+      sdk_6_0
+      sdk_5_0
+    ]);
 in {
-    home.packages = with pkgs; [
-      (jetbrains.plugins.addPlugins jetbrains.rider plugins)
-      (jetbrains.plugins.addPlugins jetbrains.pycharm-professional plugins)
-    ];
+  # Its easier to have these dependencies installed globally with JetBrains IDEs :c 
+  home.packages = with pkgs; [
+    (jetbrains.plugins.addPlugins jetbrains.rider plugins)
+    dotnetPkg mono
+
+    (jetbrains.plugins.addPlugins jetbrains.pycharm-professional plugins)
+    python3
+  ];
 }

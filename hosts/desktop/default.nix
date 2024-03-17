@@ -58,24 +58,9 @@
 
   users.users = {
     gdwr = {
-      shell = pkgs.nushell;
       isNormalUser = true;
       extraGroups = [ "docker" "wheel" ];
     };
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      # Import your home-manager configuration
-      gdwr = import ../../homes/gdwr;
-    };
-  };
-
-  age.identityPaths = [ "/home/gdwr/.ssh/id_rsa" ];
-  age.secrets.gdwr = {
-    file = ../../secrets/gdwr.age;
-    path = "/etc/secrets/gdwr";
   };
 
   services.xserver = {

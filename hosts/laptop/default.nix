@@ -35,15 +35,9 @@
 
   users.users = {
     gdwr = {
-      shell = pkgs.nushell;
       isNormalUser = true;
       extraGroups = [ "docker" "wheel" ];
     };
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = { gdwr = import ../../homes/gdwr; };
   };
 
   services.xserver = {

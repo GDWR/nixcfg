@@ -120,7 +120,6 @@
 
   users.users = {
     gdwr = {
-      shell = pkgs.nushell;
       password = "gdwr";
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" ];

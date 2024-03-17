@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ./git.nix
     ./gnome.nix
@@ -7,6 +7,10 @@
     ./nushell.nix
     ./tmux.nix
     ./vscode.nix
+  ];
+
+  nixpkgs.overlays = [
+    (import ./overlays/dotnet_sdk_5_0.nix { system = pkgs.system; })
   ];
 
   nixpkgs.config = {
@@ -19,7 +23,6 @@
     username = "gdwr";
     homeDirectory = "/home/gdwr";
     packages = with pkgs; [
-      inputs.plate.packages.x86_64-linux.plate
       btop
       discord
       ncdu
@@ -27,10 +30,7 @@
       teams-for-linux
       nix-output-monitor
       fzf
-
-      dotnet-sdk_8
-      mono
-    ];
+   ];
   };
 
   programs.home-manager.enable = true;

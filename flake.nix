@@ -27,15 +27,17 @@
         nixpkgs.lib.genAttrs [ "x86_64-linux" "aarch64-linux" ]
         (system: function nixpkgs.legacyPackages.${system});
     in {
+
       homeConfigurations = {
         gdwr = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = { inherit inputs; };
+          pkgs = nixpkgs.legacyPackages.x86_64-linux; # This should be inherited from the caller machine?
+          extraSpecialArgs = { inherit inputs; };
           modules = [ 
             ./homes/gdwr
           ];
         };
       };
+
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
