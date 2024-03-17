@@ -15,6 +15,7 @@
       copilot-vim
       nvim-lspconfig
       gitsigns-nvim
+      which-key-nvim
     ];
     extraLuaConfig = ''
       vim.g.mapleader = " "
@@ -106,6 +107,9 @@
 
       -- Setup & Configure gitsigns
       require("gitsigns").setup()
+
+      -- Setup & Configure which-key
+      require("which-key").setup()
     '';
   };
 }
