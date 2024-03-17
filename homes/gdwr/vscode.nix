@@ -1,9 +1,6 @@
 { pkgs, ... }: {
   programs.vscode = {
     enable = true;
-    enableUpdateCheck = false;
-    enableExtensionUpdateCheck = false;
-    mutableExtensionsDir = false;
 
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
@@ -15,7 +12,7 @@
       vadimcn.vscode-lldb
       cweijan.vscode-database-client2
       ms-python.python
-    ];
+          ];
 
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.userSettings
     userSettings = {
