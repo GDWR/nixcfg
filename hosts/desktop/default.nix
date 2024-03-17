@@ -49,7 +49,7 @@
   systemd.targets.hibernate.enable = false;
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
-  boot.cleanOnBoot = true;
+  boot.tmp.cleanOnBoot = true;
   virtualisation.docker.enable = true;
   virtualisation.docker.enableNvidia = true;
   programs.nix-ld.enable = true;
