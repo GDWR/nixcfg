@@ -13,6 +13,8 @@
       t = "tmux";
       e = "nvim";
       n = "nvim";
+      hm = "home-manager";
+      g = "git";
     };
   };
 
