@@ -30,6 +30,9 @@
       teams-for-linux
       nix-output-monitor
       fzf
+
+      jetbrains-mono
+      nerdfonts
    ];
   };
 
