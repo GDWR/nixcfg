@@ -1,10 +1,10 @@
 { config, pkgs, ... }: {
   imports = [
+    ./bash.nix
     ./git.nix
     ./gnome.nix
     ./jetbrains.nix
     ./neovim.nix
-    ./nushell.nix
     ./tmux.nix
     ./vscode.nix
   ];
