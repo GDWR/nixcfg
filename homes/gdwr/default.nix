@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
-    ./bash.nix
+    ./fish.nix
     ./git.nix
     ./gnome.nix
     ./jetbrains.nix

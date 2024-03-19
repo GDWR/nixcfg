@@ -56,8 +56,10 @@
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
+  programs.fish.enable = true;
   users.users = {
     gdwr = {
+      shell = pkgs.fish;
       isNormalUser = true;
       extraGroups = [ "docker" "wheel" ];
     };

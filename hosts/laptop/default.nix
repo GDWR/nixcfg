@@ -32,9 +32,11 @@
   boot.loader.grub.useOSProber = true;
 
   virtualisation.docker.enable = true;
-
+  
+  programs.fish.enable = true;
   users.users = {
     gdwr = {
+      shell = pkgs.fish;
       isNormalUser = true;
       extraGroups = [ "docker" "wheel" ];
     };
