@@ -31,7 +31,8 @@
       nix-output-monitor
       fzf
       kgx
-      
+      xclip
+
       jetbrains-mono
       nerdfonts
    ];
