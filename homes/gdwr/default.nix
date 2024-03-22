@@ -32,7 +32,8 @@
       fzf
       kgx
       xclip
-
+      remmina
+      
       jetbrains-mono
       nerdfonts
    ];
