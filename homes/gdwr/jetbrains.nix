@@ -15,5 +15,7 @@ in {
 
     (jetbrains.plugins.addPlugins jetbrains.pycharm-professional plugins)
     python3
+
+    (jetbrains.plugins.addPlugins jetbrains.idea-ultimate plugins)
   ];
 }
