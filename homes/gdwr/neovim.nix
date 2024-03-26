@@ -12,6 +12,7 @@
       catppuccin-nvim
       lualine-nvim
       nvim-cmp
+      cmp-nvim-lsp
       copilot-vim
       nvim-lspconfig
       gitsigns-nvim
@@ -66,13 +67,28 @@
       require("lualine").setup()
 
       -- Setup & Configure nvim-cmp
-      require("cmp").setup()
+      local cmp = require("cmp")
+      cmp.setup {
+        mapping = cmp.mapping.preset.insert({
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.abort(),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        }),
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+          { name = 'path' },
+          { name = 'copilot' },
+        })
+      }
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       -- Setup lspconfig
       local lspconfig = require('lspconfig')
-      lspconfig.pyright.setup {}
-      lspconfig.tsserver.setup {}
-      lspconfig.rust_analyzer.setup {}
+      lspconfig.pyright.setup { capabilities = capabilities }
+      lspconfig.tsserver.setup { capabilities = capabilities }
+      lspconfig.rust_analyzer.setup { capabilities = capabilities }
       
       -- Use LspAttach autocommand to only map the following keys
       -- after the language server attaches to the current buffer
