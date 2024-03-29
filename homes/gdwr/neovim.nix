@@ -45,6 +45,13 @@
               "${pkgs.fd}/bin/fd",
             },
           },
+	  file_ignore_patterns = {
+	    ".git/",
+	    "node_modules/",
+	    "target/",
+	    "dist/",
+	    "result/",
+	  },
         }
       }
       vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
