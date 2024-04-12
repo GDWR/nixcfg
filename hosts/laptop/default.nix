@@ -26,6 +26,7 @@
   nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "laptop";
+  services.openssh.enable = true;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
@@ -38,9 +39,13 @@
     gdwr = {
       shell = pkgs.fish;
       isNormalUser = true;
-      extraGroups = [ "docker" "wheel" ];
+      extraGroups = [ "docker" "wheel" "dialout" ];
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    cura # 3d printing software
+  ];
 
   services.xserver = {
     enable = true;
