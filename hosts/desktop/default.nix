@@ -44,6 +44,7 @@
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
+  programs.nh.enable = true;
   programs.fish.enable = true;
   users.users = {
     gdwr = {
