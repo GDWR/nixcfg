@@ -17,27 +17,13 @@
     };
   };
 
-  # https://nixos.wiki/wiki/GNOME#Dynamic_triple_buffering
-  nixpkgs.overlays = [
-    (final: prev: {
-      gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
-        mutter = gnomePrev.mutter.overrideAttrs ( old: {
-          src = pkgs.fetchgit {
-            url = "https://gitlab.gnome.org/vanvugt/mutter.git";
-            # GNOME 45: triple-buffering-v4-45
-            rev = "0b896518b2028d9c4d6ea44806d093fd33793689";
-            sha256 = "sha256-mzNy5GPlB2qkI2KEAErJQzO//uo8yO0kPQUwvGDwR4w=";
-          };
-        } );
-      });
-    })
-  ];
 
   networking.hostName = "desktop";
   systemd.targets.hibernate.enable = false;
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.tmp.cleanOnBoot = true;
+  virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.docker.enableNvidia = true;
   programs.nix-ld.enable = true;
@@ -65,7 +51,15 @@
       gnome.enable = true;
     };
     videoDrivers = [ "nvidia" ];
-    excludePackages = [ pkgs.xterm ]; # Exclude xterm application
+    excludePackages = [ pkgs.xterm ];
+  };
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
 
   services.gnome.gnome-keyring.enable = true;

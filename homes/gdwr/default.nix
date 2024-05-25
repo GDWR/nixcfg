@@ -24,7 +24,7 @@
     homeDirectory = "/home/gdwr";
     packages = with pkgs; [
       btop
-      discord
+      vesktop
       ncdu
       spotify
       teams-for-linux

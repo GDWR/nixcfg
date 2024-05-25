@@ -33,6 +33,7 @@
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    pulseaudio.enable = false;
     opengl = {
       enable = true;
       driSupport = true;

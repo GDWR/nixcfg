@@ -18,6 +18,7 @@
       gitsigns-nvim
       which-key-nvim
       luasnip
+      vim-surround
     ];
     extraLuaConfig = ''
       vim.g.mapleader = " "
