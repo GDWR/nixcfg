@@ -25,6 +25,7 @@
       vim.o.number = true
       vim.o.relativenumber = true 
       vim.o.termguicolors = true
+      vim.o.tabstop = 4
 
       -- Misc Keymaps
       vim.keymap.set("n", "<leader>c", "<cmd>bd!<cr>")
