@@ -7,19 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plate = {
-      url = "github:gdwr/plate";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    jetpack = {
-      url = "github:anduril/jetpack-nixos";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
+ };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
     let
@@ -48,11 +36,6 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [ ./hosts/laptop ];
-        };
-        xavier = nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [ ./hosts/xavier ];
         };
       };
 

@@ -2,7 +2,6 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
-    inputs.agenix.nixosModules.default
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -72,7 +71,6 @@
   environment.systemPackages = [
     pkgs.pinentry
     pkgs.stdenv.cc.cc
-    inputs.agenix.packages.x86_64-linux.default
   ];
 
   # Exclude Default Gnome Apps
