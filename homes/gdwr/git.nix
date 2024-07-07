@@ -5,9 +5,12 @@
     userName = "GDWR";
     userEmail = "gregory.dwr@gmail.com";
     signing = {
-      key = "0E5FCBA09A4F5ED5";
+      key = "AA50DFAD8C88A6DE";
       signByDefault = true;
     };
-    extraConfig = { init = { defaultBranch = "main"; }; };
+    extraConfig = {
+	  init = { defaultBranch = "main"; };
+      pull = { rebase = "true"; };
+    };
   };
 }
