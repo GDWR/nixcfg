@@ -15,8 +15,7 @@ Repository Layout
 │   └── gdwr         # Hey! Thats me. Full fat, desktop environment. 
 ├── hosts            # Actual systems, hardware/system configurations
 │   ├── desktop      # By name and by nature, x86 AMD + Nvidia GPU
-│   ├── laptop       # By name and by nature, x86 Intel
-│   └── xavier       # Nvidia Jetson Xaiver, ARM64 + Nvidia specialized GPU
+│   └── laptop       # By name and by nature, x86 Intel
 ├── packages         # Exported nix flake packages, `nix run github:gdwr/nixcfg#packageName`
 │   └── krisp-patch  # Patch discord krisp to navigate around DRM disabling.
 └── secrets          # agenix managed secrets
