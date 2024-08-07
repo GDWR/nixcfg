@@ -75,19 +75,17 @@
 
   # Exclude Default Gnome Apps
   environment.gnome.excludePackages = with pkgs.gnome; [
-    baobab # disk usage analyzer
-    cheese # photo booth
-    eog # image viewer
-    epiphany # web browser
+    baobab      # disk usage analyzer
+    cheese      # photo booth
+    eog         # image viewer
+    epiphany    # web browser
     simple-scan # document scanner
-    totem # video player
-    yelp # help viewer
-    evince # document viewer
-    geary # email client
+    totem       # video player
+    yelp        # help viewer
+    evince      # document viewer
 
     # these should be self explanatory
     gnome-calculator
-    gnome-calendar
     gnome-characters
     gnome-clocks
     gnome-contacts
@@ -98,7 +96,6 @@
     gnome-screenshot
     gnome-system-monitor
     gnome-weather
-    gnome-disk-utility
     pkgs.gnome-connections
   ];
 
