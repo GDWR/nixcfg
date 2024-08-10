@@ -24,7 +24,6 @@
   boot.tmp.cleanOnBoot = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
-  virtualisation.docker.enableNvidia = true;
   programs.nix-ld.enable = true;
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
@@ -39,9 +38,9 @@
     };
   };
 
+  services.displayManager.defaultSession = "gnome";
   services.xserver = {
     enable = true;
-    displayManager.defaultSession = "gnome";
     displayManager.gdm = {
       enable = true;
       wayland = false;
@@ -75,26 +74,26 @@
 
   # Exclude Default Gnome Apps
   environment.gnome.excludePackages = with pkgs.gnome; [
-    baobab      # disk usage analyzer
-    cheese      # photo booth
-    eog         # image viewer
-    epiphany    # web browser
-    simple-scan # document scanner
-    totem       # video player
-    yelp        # help viewer
-    evince      # document viewer
+    pkgs.baobab      # disk usage analyzer
+    pkgs.cheese      # photo booth
+    pkgs.eog         # image viewer
+    pkgs.epiphany    # web browser
+    pkgs.simple-scan # document scanner
+    pkgs.totem       # video player
+    pkgs.yelp        # help viewer
+    pkgs.evince      # document viewer
 
     # these should be self explanatory
-    gnome-calculator
+    pkgs.gnome-calculator
     gnome-characters
     gnome-clocks
     gnome-contacts
-    gnome-font-viewer
+    pkgs.gnome-font-viewer
     gnome-logs
     gnome-maps
     gnome-music
-    gnome-screenshot
-    gnome-system-monitor
+    pkgs.gnome-screenshot
+    pkgs.gnome-system-monitor
     gnome-weather
     pkgs.gnome-connections
   ];

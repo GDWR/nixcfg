@@ -34,16 +34,17 @@
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     pulseaudio.enable = false;
-    opengl = {
-      enable = true;
-      driSupport32Bit = true;
-    };
+    nvidia-container-toolkit.enable = true;
     nvidia = {
       modesetting.enable = true;
       powerManagement.enable = false;
       powerManagement.finegrained = false;
       open = false;
       nvidiaSettings = true;
+    };
+    graphics ={
+      enable = true;
+      enable32Bit = true;
     };
   };
 }
