@@ -16,6 +16,14 @@ pkgs.buildGoModule rec {
 
   vendorHash = "sha256-JZ/H2uKTO90SZumoUNlFam1xobnPnKWF5OJj7JlhWls=";
 
+  ldflags = [
+    "-s"
+    "-w"
+    "-X hauler.dev/go/hauler/internal/version.gitVersion=v${version}"
+    "-X hauler.dev/go/hauler/internal/version.gitCommit=${src.rev}"
+    "-X hauler.dev/go/hauler/internal/version.gitTreeState=clean"
+  ];
+
   preBuild = ''
     mkdir -p cmd/hauler/binaries
     cp ${cosign}/bin/cosign cmd/hauler/binaries/cosign-linux-${arch}
