@@ -93,16 +93,16 @@
 
     # these should be self explanatory
     pkgs.gnome-calculator
-    gnome-characters
-    gnome-clocks
-    gnome-contacts
-    pkgs.gnome-font-viewer
-    gnome-logs
-    gnome-maps
-    gnome-music
+    pkgs.gnome-characters
+    pkgs.gnome-clocks
+    pkgs.gnome-contacts
+    pkgs.pkgs.gnome-font-viewer
+    pkgs.gnome-logs
+    pkgs.gnome-maps
+    pkgs.gnome-music
     pkgs.gnome-screenshot
     pkgs.gnome-system-monitor
-    gnome-weather
+    pkgs.gnome-weather
     pkgs.gnome-connections
   ];
 

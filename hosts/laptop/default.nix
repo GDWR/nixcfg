@@ -67,17 +67,17 @@
     # these should be self explanatory
     gnome-calculator
     gnome-calendar
-    gnome-characters
-    gnome-clocks
-    gnome-contacts
-    gnome-font-viewer
-    gnome-logs
-    gnome-maps
-    gnome-music
-    gnome-screenshot
-    gnome-system-monitor
-    gnome-weather
-    gnome-disk-utility
+    pkgs.gnome-characters
+    pkgs.gnome-clocks
+    pkgs.gnome-contacts
+    pkgs.gnome-font-viewer
+    pkgs.gnome-logs
+    pkgs.gnome-maps
+    pkgs.gnome-music
+    pkgs.gnome-screenshot
+    pkgs.gnome-system-monitor
+    pkgs.gnome-weather
+    pkgs.gnome-disk-utility
     pkgs.gnome-connections
   ];
 
