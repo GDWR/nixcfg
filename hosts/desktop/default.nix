@@ -22,19 +22,23 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.tmp.cleanOnBoot = true;
-  virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
+  virtualisation.docker.enableNvidia = true;
+  virtualisation.docker.liveRestore = false;
+  virtualisation.virtualbox.host.enable = true;
+  programs.gamemode.enable = true;
   programs.nix-ld.enable = true;
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  environment.pathsToLink = [
+    "/share/fish"
+  ];
 
-  programs.nh.enable = true;
   programs.fish.enable = true;
   users.users = {
     gdwr = {
       shell = pkgs.fish;
       isNormalUser = true;
-      extraGroups = [ "docker" "wheel" ];
+      extraGroups = [ "docker" "wheel" "gamemode" ];
     };
   };
 
@@ -43,7 +47,7 @@
     enable = true;
     displayManager.gdm = {
       enable = true;
-      wayland = false;
+      wayland = true;
     };
     desktopManager = {
       gnome.enable = true;
@@ -67,6 +71,7 @@
     pinentryPackage = pkgs.pinentry-gnome3;
   };
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = [
     pkgs.pinentry
     pkgs.stdenv.cc.cc
