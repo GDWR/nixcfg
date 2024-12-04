@@ -3,9 +3,8 @@
     copilotPlugin = "17718";
     plugins = [ copilotPlugin ];
     dotnetPkg = (with pkgs.dotnetCorePackages; combinePackages [
+      sdk_9_0
       sdk_8_0
-      sdk_6_0
-      sdk_5_0
     ]);
 in {
   # Its easier to have these dependencies installed globally with JetBrains IDEs :c 

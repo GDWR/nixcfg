@@ -11,10 +11,6 @@ in {
     ./vscode.nix
   ];
 
-  nixpkgs.overlays = [
-    (import ./overlays/dotnet_sdk_5_0.nix { system = pkgs.system; })
-  ];
-
   nixpkgs.config = {
     allowUnfree = true;
     # Workaround for https://github.com/nix-community/home-manager/issues/2942
@@ -38,8 +34,7 @@ in {
       pass
       flake-packages.hauler
 
-      jetbrains-mono
-      nerdfonts
+      nerd-fonts.jetbrains-mono
    ];
   };
 
