@@ -12,7 +12,7 @@
       vadimcn.vscode-lldb
       cweijan.vscode-database-client2
       ms-python.python
-          ];
+    ];
 
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.userSettings
     userSettings = {

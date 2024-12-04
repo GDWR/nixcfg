@@ -27,6 +27,9 @@
   virtualisation.docker.liveRestore = false;
   virtualisation.virtualbox.host.enable = true;
   programs.gamemode.enable = true;
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+
   programs.nix-ld.enable = true;
 
   environment.pathsToLink = [
