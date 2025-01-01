@@ -6,7 +6,7 @@
 
   boot.initrd.availableKernelModules =
     [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.kernelParams = [ "module_blacklist=amdgpu" ];
+  boot.kernelParams = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 

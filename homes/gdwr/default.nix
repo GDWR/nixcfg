@@ -11,6 +11,11 @@ in {
     ./vscode.nix
   ];
 
+  nixpkgs.overlays = [
+    (import ./overlays/vesktop.nix { inherit pkgs; })
+  ];
+
+
   nixpkgs.config = {
     allowUnfree = true;
     # Workaround for https://github.com/nix-community/home-manager/issues/2942

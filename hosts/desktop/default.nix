@@ -55,7 +55,7 @@
     desktopManager = {
       gnome.enable = true;
     };
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = [ "nvidia" "amdgpu" ];
     excludePackages = [ pkgs.xterm ];
   };
 
@@ -78,6 +78,7 @@
   environment.systemPackages = [
     pkgs.pinentry
     pkgs.stdenv.cc.cc
+    pkgs.mangohud
   ];
 
   # Exclude Default Gnome Apps
