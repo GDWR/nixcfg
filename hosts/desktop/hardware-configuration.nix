@@ -6,8 +6,9 @@
 
   boot.initrd.availableKernelModules =
     [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.kernelParams = [ ];
   boot.kernelModules = [ "kvm-amd" ];
+  # https://discourse.nixos.org/t/issue-with-virtualbox-in-24-11/57607/2
+  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
