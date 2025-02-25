@@ -39,11 +39,6 @@
         };
       };
 
-      packages = forAllSystems (pkgs: {
-        krisp-patch = pkgs.callPackage ./packages/krisp-patch { inherit pkgs; };
-        hauler = pkgs.callPackage ./packages/hauler { inherit pkgs; system = pkgs.system;  };
-      });
-
       formatter = forAllSystems (pkgs: pkgs.nixfmt);
     };
 }
