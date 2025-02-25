@@ -1,10 +1,11 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
-    ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
 
     ./bootloader.nix
     ./docker.nix
+    ./hardware-configuration.nix
+    ./shell.nix
     ./steam.nix
   ];
 
@@ -23,11 +24,6 @@
 
   boot.tmp.cleanOnBoot = true;
 
-  environment.pathsToLink = [
-    "/share/fish"
-  ];
-
-  programs.fish.enable = true;
   users.users = {
     gdwr = {
       shell = pkgs.fish;
