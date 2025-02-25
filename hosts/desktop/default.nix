@@ -5,6 +5,7 @@
     ./audio.nix
     ./bootloader.nix
     ./desktopEnvironment.nix
+    ./disks.nix
     ./docker.nix
     ./hardware-configuration.nix
     ./shell.nix
