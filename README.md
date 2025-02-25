@@ -5,18 +5,15 @@ Quickstart
 ----------
 See flake outputs: `nix flake show github:gdwr/nixcfg` \
 Install host: `nixos-rebuild switch --flake github:gdwr/nixcfg#desktop` \
-Run package: `nix run github:gdwr#krisp-patch`
 
 Repository Layout
 -----------------
 ```yaml
-├── assets           # Data files uses within configurations or repository
-├── homes            # Elementary, my dear Watson. Homes utilizing home-manager
-│   └── gdwr         # Hey! Thats me. Full fat, desktop environment. 
-├── hosts            # Actual systems, hardware/system configurations
-│   ├── desktop      # By name and by nature, x86 AMD + Nvidia GPU
-│   └── laptop       # By name and by nature, x86 Intel
-└── secrets          # agenix managed secrets
+├── assets       # Data files uses within configurations or repository
+├── homes        # Elementary, my dear Watson. Homes utilizing home-manager
+│   └── gdwr     # Hey! Thats me. Full fat, desktop environment. 
+└── hosts        # Actual systems, hardware/system configurations
+    └── desktop 
 ```
 
 Resources
