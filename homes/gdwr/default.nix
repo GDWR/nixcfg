@@ -1,6 +1,4 @@
-{ config, pkgs, inputs, ... }: let
-  flake-packages = inputs.self.packages.x86_64-linux;
-in {
+{ config, pkgs, inputs, ... }: {
   imports = [
     ./fish.nix
     ./git.nix
@@ -37,8 +35,6 @@ in {
       xclip
       remmina
       pass
-      flake-packages.hauler
-
       nerd-fonts.jetbrains-mono
    ];
   };
