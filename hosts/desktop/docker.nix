@@ -1,12 +1,4 @@
 { pkgs, ... }: {
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
+  virtualisation.docker.enable = true;
   hardware.nvidia-container-toolkit.enable = true;
-  environment.systemPackages = with pkgs; [
-    dive
-    podman-tui
-    docker-compose
-  ];
 }
