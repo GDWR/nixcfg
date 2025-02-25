@@ -23,8 +23,6 @@
 
   boot.tmp.cleanOnBoot = true;
 
-  programs.nix-ld.enable = true;
-
   environment.pathsToLink = [
     "/share/fish"
   ];
