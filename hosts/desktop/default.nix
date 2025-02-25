@@ -2,6 +2,7 @@
   imports = [
     inputs.home-manager.nixosModules.default
 
+    ./audio.nix
     ./bootloader.nix
     ./docker.nix
     ./hardware-configuration.nix
@@ -44,14 +45,6 @@
     };
     videoDrivers = [ "nvidia" "amdgpu" ];
     excludePackages = [ pkgs.xterm ];
-  };
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-    jack.enable = true;
   };
 
   services.gnome.gnome-keyring.enable = true;
