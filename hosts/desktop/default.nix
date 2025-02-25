@@ -2,6 +2,8 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
+
+    ./bootloader.nix
     ./docker.nix
     ./steam.nix
   ];
@@ -19,8 +21,6 @@
 
   networking.hostName = "desktop";
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
   boot.tmp.cleanOnBoot = true;
   programs.gamemode.enable = true;
 
