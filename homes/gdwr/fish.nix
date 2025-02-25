@@ -5,11 +5,6 @@
       set fish_greeting # Disable greeting
       
       source ${pkgs.fzf}/share/fzf/key-bindings.fish
-      
-      if status is-interactive
-      and not set -q TMUX
-          exec tmux
-      end
     '';
 
     shellAbbrs = {
