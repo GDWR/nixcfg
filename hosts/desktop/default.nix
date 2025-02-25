@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     ./docker.nix
+    ./steam.nix
   ];
 
   nix = {
@@ -22,8 +23,6 @@
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.tmp.cleanOnBoot = true;
   programs.gamemode.enable = true;
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
 
   programs.nix-ld.enable = true;
 
@@ -73,7 +72,6 @@
   environment.systemPackages = [
     pkgs.pinentry
     pkgs.stdenv.cc.cc
-    pkgs.mangohud
   ];
 
   # Exclude Default Gnome Apps
