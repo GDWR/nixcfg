@@ -2,9 +2,8 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
+    ./docker.nix
   ];
-
-  nixpkgs.config.allowUnfree = true;
 
   nix = {
     optimise.automatic = true;
@@ -15,17 +14,13 @@
       trusted-users = [ "root" "gdwr" ];
     };
   };
-
+  nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "desktop";
-  systemd.targets.hibernate.enable = false;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.tmp.cleanOnBoot = true;
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableNvidia = true;
-  virtualisation.docker.liveRestore = false;
-  virtualisation.virtualbox.host.enable = true;
   programs.gamemode.enable = true;
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
