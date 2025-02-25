@@ -39,7 +39,6 @@
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    pulseaudio.enable = false;
     nvidia-container-toolkit.enable = true;
     nvidia = {
       modesetting.enable = true;
