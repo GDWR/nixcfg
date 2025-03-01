@@ -3,7 +3,7 @@
     enable = true;
 
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.userSettings
-    userSettings = {
+    profiles.default.userSettings = {
       "debug.toolBarLocation" = "docked";
       "git.autofetch" = true;
       "explorer.autoReveal" = true;
