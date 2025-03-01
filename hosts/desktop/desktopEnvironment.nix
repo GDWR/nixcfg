@@ -5,9 +5,10 @@
 
   programs.hyprland.enable = true; # enable Hyprland
 
-  environment.systemPackages = [
-    # ... other packages
-    pkgs.kitty # required for the default Hyprland config
+  environment.systemPackages = with pkgs; [
+    # required for the default Hyprland config
+    kitty
+    wofi
   ];
 
   services.displayManager.defaultSession = "hyprland";
