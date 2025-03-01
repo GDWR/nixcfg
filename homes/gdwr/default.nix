@@ -1,5 +1,6 @@
 { config, pkgs, inputs, ... }: {
   imports = [
+    ./browser.nix
     ./fish.nix
     ./git.nix
     ./gnome.nix
@@ -9,16 +10,16 @@
     ./vscode.nix
   ];
 
-  nixpkgs.overlays = [
-    (import ./overlays/vesktop.nix { inherit pkgs; })
-  ];
-
-
   nixpkgs.config = {
+    overlays = [
+      (import ./overlays/vesktop.nix { inherit pkgs; })
+    ];
     allowUnfree = true;
     # Workaround for https://github.com/nix-community/home-manager/issues/2942
     allowUnfreePredicate = _: true;
   };
+
+  programs.home-manager.enable = true;
 
   home = {
     username = "gdwr";
@@ -39,9 +40,8 @@
    ];
   };
 
-  programs.home-manager.enable = true;
   programs.browserpass.enable = true;
-  programs.firefox.enable = true;
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
