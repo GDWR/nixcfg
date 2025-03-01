@@ -25,4 +25,10 @@
   };
 
   programs.direnv.enable = true;
+
+  home.packages = with pkgs; [
+    btop
+    fzf
+    ncdu
+  ];
 }

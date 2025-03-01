@@ -24,13 +24,10 @@
     username = "gdwr";
     homeDirectory = "/home/gdwr";
     packages = with pkgs; [
-      btop
       vesktop
-      ncdu
       spotify
       teams-for-linux
       nix-output-monitor
-      fzf
       kgx
       xclip
       remmina
