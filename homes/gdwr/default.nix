@@ -4,6 +4,7 @@
     ./fish.nix
     ./git.nix
     ./gnome.nix
+    ./hyprland.nix
     ./jetbrains.nix
     ./neovim.nix
     ./tmux.nix

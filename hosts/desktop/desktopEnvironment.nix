@@ -3,7 +3,14 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  services.displayManager.defaultSession = "gnome";
+  programs.hyprland.enable = true; # enable Hyprland
+
+  environment.systemPackages = [
+    # ... other packages
+    pkgs.kitty # required for the default Hyprland config
+  ];
+
+  services.displayManager.defaultSession = "hyprland";
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
