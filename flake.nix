@@ -7,15 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
- };
+  };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
-    let
-      forAllSystems = function:
-        nixpkgs.lib.genAttrs [ "x86_64-linux" "aarch64-linux" ]
-        (system: function nixpkgs.legacyPackages.${system});
-    in {
-
+    {
       homeConfigurations = {
         gdwr = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # This should be inherited from the caller machine?
@@ -33,7 +28,5 @@
           modules = [ ./hosts/desktop ];
         };
       };
-
-      formatter = forAllSystems (pkgs: pkgs.nixfmt);
     };
 }
