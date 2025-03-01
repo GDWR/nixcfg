@@ -1,11 +1,10 @@
-# https://github.com/NixOS/nixpkgs/issues/327982#issuecomment-2684907720
 { appimageTools, fetchurl, ... }:
 let
   pname = "zen";
   version = "1.8.2b";
 
   src = fetchurl {
-    url = "https://github.com/zen-browser/desktop/releases/1.8.2b/download/zen-x86_64.AppImage";
+    url = "https://github.com/zen-browser/desktop/releases/download/1.8.2b/zen-x86_64.AppImage";
     sha256 = "sha256-hZiJ8JLzLhtD1W8DAso3yBAJYhFE+nJEbQJa59AWjnU=";
   };
 
@@ -27,4 +26,3 @@ appimageTools.wrapType2 {
     platforms = [ "x86_64-linux" ];
   };
 }
-

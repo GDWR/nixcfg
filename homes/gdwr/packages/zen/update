@@ -1,0 +1,45 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i python3 -p python3Packages.httpx
+import httpx
+
+import base64
+import hashlib
+import json
+import pathlib
+import re
+
+zen_nixfile_path = pathlib.Path(__file__).parent / "default.nix"
+zen_nixfile = zen_nixfile_path.read_text()
+
+current_version = re.search(r'version = "(.*)";', zen_nixfile).group(1)
+print("Current Version:", current_version)
+
+latest_manifest = httpx.get("https://api.github.com/repos/zen-browser/desktop/releases/latest").json()
+latest_version = latest_manifest["tag_name"]
+print("Latest Version:", latest_manifest["tag_name"])
+
+if current_version == latest_version:
+    print("Already up to date")
+    exit(0)
+
+assets = latest_manifest["assets"]
+asset_appimage_x86_64 = next(asset for asset in assets if asset["name"] == "zen-x86_64.AppImage")
+
+new_download_url = asset_appimage_x86_64["browser_download_url"]
+print("New Download URL:", new_download_url)
+
+response = httpx.get(new_download_url, follow_redirects=True)
+response.raise_for_status()
+content = response.content
+
+sha256 = hashlib.sha256(content)
+hash = base64.b64encode(sha256.digest()).decode()
+print("New SHA256:", f"sha256-{hash}")
+
+print("Updating Nix file")
+zen_nixfile = re.sub(r'version = ".*";', f'version = "{latest_version}";', zen_nixfile)
+zen_nixfile = re.sub(r'sha256 = "sha256-.*";', f'sha256 = "sha256-{hash}";', zen_nixfile)
+zen_nixfile = re.sub(r'url = ".*";', f'url = "{new_download_url}";', zen_nixfile)
+zen_nixfile_path.write_text(zen_nixfile)
+
+print("Done")
