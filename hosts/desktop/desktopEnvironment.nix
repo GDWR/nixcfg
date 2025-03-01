@@ -6,9 +6,13 @@
   programs.hyprland.enable = true; # enable Hyprland
 
   environment.systemPackages = with pkgs; [
-    # required for the default Hyprland config
     kitty
-    wofi
+    rofi
+    waybar
+    hyprpaper
+    hyprpicker
+    hyprshot
+    wl-clipboard
   ];
 
   services.displayManager.defaultSession = "hyprland";
