@@ -73,7 +73,7 @@
 
     "cpu": {
       "format": "{}% ",
-      "on-click": "kitty btop",
+      "on-click": "kitty btop --preset 1",
       "states": {
         "warning": 60,
         "critical": 80
@@ -83,6 +83,7 @@
     "disk": {
 	  "format": "{specific_free:0.0f}GB ",
 	  "unit": "GB",
+      "on-click": "kitty 'ncdu /'",
       "states": {
         "warning": 360,
         "critical": 420
@@ -92,6 +93,7 @@
     "memory": {
       "interval": 30,
       "format": "{}% ",
+      "on-click": "kitty 'btop --preset 2'",
       "max-length": 10,
       "states": {
         "warning": 60,
