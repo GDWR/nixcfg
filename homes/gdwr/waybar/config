@@ -1,0 +1,101 @@
+{
+    "margin-top": 10,
+    "margin-bottom": 10,
+    "margin-left": 20,
+    "margin-right": 20,
+
+    "modules-left": [
+      "hyprland/workspaces",
+      "mpris"
+    ],
+    "modules-center": [
+      "clock"
+    ],
+    "modules-right": [
+      "wireplumber",
+      "privacy",
+      "cpu",
+      "disk",
+      "memory",
+      "tray"
+    ],
+
+    "clock": {
+      "format": "{:%b %d %R %p}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+        "mode"          : "week",
+        "on-scroll"     : 1,
+        "format": {
+          "months":     "<span color='#ffead3'><b>{}</b></span>",
+          "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+          "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+          "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+          "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+        }
+       },
+       "actions":  {
+          "on-scroll-up": "shift_up",
+          "on-scroll-down": "shift_down"
+       }
+    },
+
+    "cava": {
+        "framerate": 60,
+        "autosens": 1,
+        "bars": 12,
+        "method": "pipewire",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+          "on-click-right": "mode"
+        }
+    },
+
+    "mpris": {
+      "player": "spotify",
+      "format": "{status_icon} {title}"
+    },
+
+    "wireplumber": {
+      "format": "{volume}%",
+      "format-muted": "Muted",
+      "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+      "on-click-right": "helvum"
+    },
+
+    "cpu": {
+      "format": "{}% ",
+      "on-click": "kitty btop",
+      "states": {
+        "warning": 60,
+        "critical": 80
+      }
+    },
+
+    "disk": {
+	  "format": "{specific_free:0.0f}GB ",
+	  "unit": "GB",
+      "states": {
+        "warning": 360,
+        "critical": 420
+      }
+    },
+
+    "memory": {
+      "interval": 30,
+      "format": "{}% ",
+      "max-length": 10,
+      "states": {
+        "warning": 60,
+        "critical": 80
+      }
+    }
+}
