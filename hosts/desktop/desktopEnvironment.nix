@@ -15,6 +15,11 @@
     wl-clipboard
   ];
 
+
+  environment.sessionVariables = {
+    ADW_DISABLE_PORTAL = "1";
+  };
+
   services.displayManager.defaultSession = "hyprland";
   services.xserver = {
     enable = true;
