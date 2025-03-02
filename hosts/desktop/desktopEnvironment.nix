@@ -12,6 +12,7 @@
     hyprpaper
     hyprpicker
     hyprshot
+    hyprlock
     wl-clipboard
   ];
 
