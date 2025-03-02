@@ -9,11 +9,11 @@
       "mpris"
     ],
     "modules-center": [
+      "privacy",
       "clock"
     ],
     "modules-right": [
       "wireplumber",
-      "privacy",
       "cpu",
       "disk",
       "memory",
