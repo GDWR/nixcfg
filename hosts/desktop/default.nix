@@ -31,7 +31,7 @@
     gdwr = {
       shell = pkgs.fish;
       isNormalUser = true;
-      extraGroups = [ "docker" "wheel" "gamemode" ];
+      extraGroups = [ "docker" "wheel" "gamemode" "libvirtd" ];
     };
   };
 
