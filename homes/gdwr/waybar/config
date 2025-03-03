@@ -21,7 +21,7 @@
     ],
 
     "clock": {
-      "format": "{:%b %d %R %p}",
+      "format": "{:%b %d %R}",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {
         "mode"          : "week",
@@ -61,7 +61,7 @@
 
     "mpris": {
       "player": "spotify",
-      "format": "{status_icon} {title}"
+      "format": "{title} - {artist}"
     },
 
     "wireplumber": {
