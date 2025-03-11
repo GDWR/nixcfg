@@ -15,6 +15,9 @@ in
 appimageTools.wrapType2 {
   inherit pname version src;
 
+  extraPkgs = pkgs: with pkgs; [
+    ffmpeg
+  ];
   extraInstallCommands = ''
     # Install .desktop file
     install -m 444 -D ${appimageContents}/zen.desktop $out/share/applications/${pname}.desktop
