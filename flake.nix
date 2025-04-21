@@ -2,7 +2,7 @@
   description = "GDWR's Nix Configs";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:gdwr/nixpkgs/193f06a0ff40e3d5950066acc6ce911977df086d";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

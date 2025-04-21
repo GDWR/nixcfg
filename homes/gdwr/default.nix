@@ -15,6 +15,10 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
+ 
+  nixpkgs.overlays = [
+    (import ./overlays/jetbrains.nix { system = pkgs.system; })
+  ];
 
   programs.home-manager.enable = true;
 
