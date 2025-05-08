@@ -7,8 +7,6 @@
   boot.initrd.availableKernelModules =
     [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.kernelModules = [ "kvm-amd" ];
-  # https://discourse.nixos.org/t/issue-with-virtualbox-in-24-11/57607/2
-  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
   boot.extraModulePackages = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -20,12 +18,18 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
+  services.xserver.videoDrivers = ["nvidia" "modesetting"];
   hardware = {
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    cpu.amd.updateMicrocode = true;
     nvidia = {
-      modesetting.enable = true;
       open = false;
-      nvidiaSettings = true;
+      powerManagement.enable = false;
+      modesetting.enable = true;
+      prime = {
+        sync.enable = true;
+        amdgpuBusId = "PCI:16:0:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
     };
     graphics ={
       enable = true;
