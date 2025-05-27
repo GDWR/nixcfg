@@ -35,6 +35,7 @@
     };
   };
 
+  programs.nix-ld.enable = true;
   services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

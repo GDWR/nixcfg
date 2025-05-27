@@ -3,7 +3,6 @@
     ./browser.nix
     ./fish.nix
     ./git.nix
-    ./gnome.nix
     ./hyprland.nix
     ./jetbrains.nix
     ./neovim.nix
@@ -16,10 +15,6 @@
     allowUnfree = true;
   };
  
-  nixpkgs.overlays = [
-    (import ./overlays/jetbrains.nix { system = pkgs.system; })
-  ];
-
   programs.home-manager.enable = true;
 
   home = {
@@ -46,6 +41,9 @@
       x11.enable = true;
    };
   };
+
+  home.file.".background".source = ../../assets/firewatch.jpg;
+  home.file.".face".source = ../../assets/gdwr.png;
 
   programs.browserpass.enable = true;
 

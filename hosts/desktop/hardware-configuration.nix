@@ -23,10 +23,12 @@
     cpu.amd.updateMicrocode = true;
     nvidia = {
       open = false;
-      powerManagement.enable = false;
       modesetting.enable = true;
+      nvidiaSettings = true;
       prime = {
-        sync.enable = true;
+        reverseSync.enable = true;
+        offload.enableOffloadCmd = true;
+
         amdgpuBusId = "PCI:16:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };

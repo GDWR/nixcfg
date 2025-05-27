@@ -6,12 +6,15 @@
 in {
   # Its easier to have these dependencies installed globally with JetBrains IDEs :c 
   home.packages = with pkgs; [
-    (jetbrains.plugins.addPlugins jetbrains.rider ["github-copilot"])
+    jetbrains.rider
     dotnetPkg mono
 
-    (jetbrains.plugins.addPlugins jetbrains.pycharm-professional ["github-copilot"])
+    jetbrains.pycharm-professional
     python3
 
-    (jetbrains.plugins.addPlugins jetbrains.idea-ultimate ["github-copilot"])
+    jetbrains.idea-ultimate
+
+    jetbrains.rust-rover
+    rustup gcc
   ];
 }
