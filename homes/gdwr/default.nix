@@ -6,6 +6,7 @@
     ./hyprland.nix
     ./jetbrains.nix
     ./neovim.nix
+    ./poe.nix
     ./tmux.nix
     ./vscode.nix
     ./waybar.nix
@@ -32,7 +33,6 @@
       pass
       helvum
       nerd-fonts.jetbrains-mono
-      path-of-building
    ];
    pointerCursor = {
       package = pkgs.bibata-cursors;
