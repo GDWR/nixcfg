@@ -32,6 +32,7 @@
       pass
       helvum
       nerd-fonts.jetbrains-mono
+      path-of-building
    ];
    pointerCursor = {
       package = pkgs.bibata-cursors;
