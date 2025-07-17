@@ -4,8 +4,6 @@
       sdk_8_0
     ]);
 in {
-  nixpkgs.overlays = [(import ./overlays/jetbrains.nix { system = pkgs.system; pkgs = pkgs; })];
-
   # Its easier to have these dependencies installed globally with JetBrains IDEs :c 
   home.packages = with pkgs; [
     jetbrains.rider
