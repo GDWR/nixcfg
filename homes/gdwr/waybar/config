@@ -68,7 +68,8 @@
       "format": "{volume}%",
       "format-muted": "Muted",
       "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-      "on-click-right": "helvum"
+      "on-click-right": "easyeffects",
+      "on-click-middle": "helvum"
     },
 
     "cpu": {
