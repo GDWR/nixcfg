@@ -32,6 +32,8 @@
       remmina
       pass
       helvum
+      nautilus
+      easyeffects
       nerd-fonts.jetbrains-mono
    ];
    pointerCursor = {
