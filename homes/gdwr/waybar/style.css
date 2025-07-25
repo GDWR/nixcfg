@@ -78,3 +78,11 @@ window {
 #workspaces button {
   color: white;
 }
+
+#tray menu {
+  background-color: rgb(90, 44, 85);
+}
+
+#tray menu menuitem:hover {
+    background-color: rgba(45, 17, 42, 0.8);
+}
