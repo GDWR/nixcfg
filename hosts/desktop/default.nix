@@ -38,6 +38,11 @@
   programs.nix-ld.enable = true;
   services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
 
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 }
