@@ -5,7 +5,6 @@
 
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = false;
-  services.hypridle.enable = true;
 
   environment.systemPackages = with pkgs; [
     kitty
