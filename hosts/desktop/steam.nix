@@ -8,6 +8,7 @@
   programs.gamemode.settings.general.inhibit_screensaver = 0;
 
   environment.systemPackages = with pkgs; [
+    bottles
     mangohud
   ];
 }
