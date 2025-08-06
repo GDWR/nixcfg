@@ -35,6 +35,7 @@
       nautilus
       easyeffects
       nerd-fonts.jetbrains-mono
+      obsidian
    ];
    pointerCursor = {
       package = pkgs.bibata-cursors;
