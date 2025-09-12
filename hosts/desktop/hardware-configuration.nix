@@ -18,20 +18,25 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-  services.xserver.videoDrivers = ["nvidia" "modesetting"];
+  services.xserver.videoDrivers = ["nvidia" "amdgpu" "modesetting"];
   hardware = {
     cpu.amd.updateMicrocode = true;
     nvidia = {
-      open = false;
+      open = true;
       modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
       nvidiaSettings = true;
       prime = {
-        reverseSync.enable = true;
-        offload.enableOffloadCmd = true;
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
 
         amdgpuBusId = "PCI:16:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
     graphics ={
       enable = true;
