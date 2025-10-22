@@ -21,6 +21,7 @@
   home = {
     username = "gdwr";
     homeDirectory = "/home/gdwr";
+    sessionPath = [ "/home/gdwr/.local/bin" ];
     packages = with pkgs; [
       vesktop
       spotify
