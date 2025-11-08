@@ -18,8 +18,6 @@
   ];
 
   services.displayManager.defaultSession = "hyprland";
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-  };
+  services.displayManager.gdm.enable = true;
+  services.xserver.enable = true;
 }

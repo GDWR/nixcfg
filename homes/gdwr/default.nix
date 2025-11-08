@@ -28,7 +28,6 @@
       playerctl
       teams-for-linux
       nix-output-monitor
-      kgx
       xclip
       remmina
       pass

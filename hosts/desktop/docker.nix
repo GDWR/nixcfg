@@ -3,7 +3,6 @@
     enable = true;
     liveRestore = false;
   };
-  virtualisation.docker.enableNvidia = true;
   hardware.nvidia-container-toolkit.enable = true;
 
   virtualisation.libvirtd = {
