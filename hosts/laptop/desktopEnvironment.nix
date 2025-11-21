@@ -19,6 +19,7 @@
 
   environment.sessionVariables = {
     ADW_DISABLE_PORTAL = "1";
+    TERM = "xterm-256color"; # Kitty is a piece of shit
   };
 
   services.displayManager.defaultSession = "hyprland";
