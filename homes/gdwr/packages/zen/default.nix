@@ -1,11 +1,11 @@
 { appimageTools, fetchurl, ... }:
 let
   pname = "zen";
-  version = "1.17.6b";
+  version = "1.17.8b";
 
   src = fetchurl {
-    url = "https://github.com/zen-browser/desktop/releases/download/1.17.6b/zen-x86_64.AppImage";
-    sha256 = "sha256-Ij7aMXrYSkguMshlOYun1VnIRwoJ4mNWVsq5s/bQbgM=";
+    url = "https://github.com/zen-browser/desktop/releases/download/1.17.8b/zen-x86_64.AppImage";
+    sha256 = "sha256-fjDW7K8fq/ekGuRLaCHK7RWuKe+EbhqfySOldo53EGw=";
   };
 
   appimageContents = appimageTools.extract {
@@ -16,7 +16,7 @@ appimageTools.wrapType2 {
   inherit pname version src;
 
   extraPkgs = pkgs: with pkgs; [
-    ffmpeg
+    ffmpeg_4
   ];
   extraInstallCommands = ''
     # Install .desktop file
