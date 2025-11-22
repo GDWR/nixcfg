@@ -1,6 +1,6 @@
 { pkgs, ... }: let
     dotnetPkg = (with pkgs.dotnetCorePackages; combinePackages [
-      sdk_9_0
+      sdk_10_0
       sdk_8_0
     ]);
 in {
