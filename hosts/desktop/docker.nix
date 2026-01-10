@@ -5,6 +5,9 @@
   };
   hardware.nvidia-container-toolkit.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    virt-manager
+  ];
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
