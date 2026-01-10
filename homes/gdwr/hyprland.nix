@@ -4,5 +4,6 @@
 
   # Add hyprland.conf
   wayland.windowManager.hyprland.extraConfig = builtins.readFile ./hyprland.conf;
-  home.file.".config/hyprland/hyprlock.conf".source = ./hyprlock.conf;
+  home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
+  home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
 }
