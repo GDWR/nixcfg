@@ -9,10 +9,10 @@ in {
     jetbrains.rider
     dotnetPkg mono
 
-    jetbrains.pycharm-professional
+    jetbrains.pycharm
     python3
 
-    jetbrains.idea-ultimate
+    jetbrains.idea
 
     jetbrains.rust-rover
     rustup gcc

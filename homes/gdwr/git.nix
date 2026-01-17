@@ -2,15 +2,17 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
-    userName = "GDWR";
-    userEmail = "gregory.dwr@gmail.com";
+    settings = {
+      user = {
+        name = "GDWR";
+        email = "gregory.dwr@gmail.com";
+      };
+      init = { defaultBranch = "main"; };
+      pull = { rebase = true; };
+    };
     signing = {
       key = "AA50DFAD8C88A6DE";
       signByDefault = true;
-    };
-    extraConfig = {
-	  init = { defaultBranch = "main"; };
-      pull = { rebase = "true"; };
     };
   };
 }

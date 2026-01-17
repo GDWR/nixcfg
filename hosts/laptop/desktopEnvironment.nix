@@ -23,11 +23,9 @@
   };
 
   services.displayManager.defaultSession = "hyprland";
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
+  services.xserver.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Exclude Default Gnome Apps
   environment.gnome.excludePackages = [
