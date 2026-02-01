@@ -9,6 +9,7 @@
     plugins = with pkgs.vimPlugins; [
       nvim-tree-lua
       telescope-nvim
+      plenary-nvim
       catppuccin-nvim
       lualine-nvim
       nvim-cmp
@@ -20,7 +21,7 @@
       luasnip
       vim-surround
     ];
-    extraLuaConfig = ''
+    initLua = ''
       vim.g.mapleader = " "
       vim.o.number = true
       vim.o.relativenumber = true 
@@ -48,13 +49,13 @@
               "${pkgs.fd}/bin/fd",
             },
           },
-	  file_ignore_patterns = {
-	    ".git/",
-	    "node_modules/",
-	    "target/",
-	    "dist/",
-	    "result/",
-	  },
+          file_ignore_patterns = {
+            ".git/",
+            "node_modules/",
+            "target/",
+            "dist/",
+            "result/",
+          },
         }
       }
       vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
@@ -75,11 +76,11 @@
         integrations = {
           cmp = true,
           gitsigns = true,
-	  markdown = true,
-	  telescope = true,
-	  which_key = true,
-	  nvimtree = true,
-	  native_lsp = {
+	        markdown = true,
+	        telescope = true,
+	        which_key = true,
+	        nvimtree = true,
+	        native_lsp = {
             enabled = true,
             virtual_text = {
               errors = { "italic" },
@@ -97,7 +98,6 @@
               background = true,
             },
           },
-
         },
       }
       vim.cmd[[colorscheme catppuccin-mocha]]
@@ -105,10 +105,9 @@
       -- Setup & Configure lualine
       require("lualine").setup {
         options = {
-	  theme = "catppuccin",
-	}
+	        theme = "catppuccin",
+	      }
       }
-
 
       -- Setup & Configure nvim-cmp
       local cmp = require("cmp")
@@ -117,7 +116,7 @@
           expand = function(args)
             require('luasnip').lsp_expand(args.body)
           end,
-	},
+	      },
         mapping = cmp.mapping.preset.insert({
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
