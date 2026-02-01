@@ -133,11 +133,10 @@
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       -- Setup lspconfig
-      local lspconfig = require('lspconfig')
-      lspconfig.pyright.setup { capabilities = capabilities }
-      lspconfig.tsserver.setup { capabilities = capabilities }
-      lspconfig.rust_analyzer.setup { capabilities = capabilities }
-      lspconfig.gopls.setup { capabilities = capabilities }
+      vim.lsp.enable('pyright')
+      vim.lsp.enable('tsserver')
+      vim.lsp.enable('rust_analyzer')
+      vim.lsp.enable('gopls')
       
       -- Use LspAttach autocommand to only map the following keys
       -- after the language server attaches to the current buffer
