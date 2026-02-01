@@ -3,8 +3,10 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  programs.hyprland.enable = true;
-  programs.hyprland.xwayland.enable = false;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
 
   environment.systemPackages = with pkgs; [
     kitty

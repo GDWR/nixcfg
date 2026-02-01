@@ -14,10 +14,6 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, disko, ... }: {
-      packages.x86_64-linux.zen = nixpkgs.legacyPackages.x86_64-linux.callPackage ./homes/gdwr/packages/zen { 
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; 
-      };
-
       homeConfigurations = {
         gdwr = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # This should be inherited from the caller machine?

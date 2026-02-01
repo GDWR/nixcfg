@@ -6,8 +6,7 @@ Quickstart
 See flake outputs: `nix flake show github:gdwr/nixcfg` \
 Install host: `nixos-rebuild switch --flake github:gdwr/nixcfg#desktop` \
 Install laptop: `nixos-rebuild switch --flake github:gdwr/nixcfg#laptop` \
-Apply home config: `home-manager switch --flake github:gdwr/nixcfg#gdwr` \
-Build package: `nix build github:gdwr/nixcfg#zen`
+Apply home config: `home-manager switch --flake github:gdwr/nixcfg#gdwr`
 
 Repository Layout
 -----------------
