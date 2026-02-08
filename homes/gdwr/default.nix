@@ -35,7 +35,7 @@
       nautilus
       easyeffects
       nerd-fonts.jetbrains-mono
-      obsidian
+      obs-studio
    ];
   };
 
