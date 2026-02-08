@@ -5,7 +5,7 @@
 
   programs.hyprland = {
     enable = true;
-    withUWSM = true;
+    withUWSM = false;
   };
 
   environment.systemPackages = with pkgs; [
