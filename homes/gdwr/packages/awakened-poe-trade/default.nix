@@ -11,6 +11,8 @@ let
   appimageContents = appimageTools.extract {
     inherit pname version src;
   };
+
+  extraFlags = "--ozone-platform=x11";
 in
 appimageTools.wrapType2 {
   inherit pname version src;
@@ -18,7 +20,7 @@ appimageTools.wrapType2 {
   extraInstallCommands = ''
     install -m 444 -D ${appimageContents}/awakened-poe-trade.desktop $out/share/applications/${pname}.desktop
     substituteInPlace $out/share/applications/awakened-poe-trade.desktop \
-      --replace "Exec=AppRun --sandbox %U" "Exec=awakened-poe-trade %U"
+      --replace "Exec=AppRun --sandbox %U" "Exec=awakened-poe-trade %U ${extraFlags}"
 
     install -m 444 -D ${appimageContents}/awakened-poe-trade.png $out/share/icons/hicolor/128x128/apps/${pname}.png
   '';
