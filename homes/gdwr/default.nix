@@ -36,6 +36,8 @@
       easyeffects
       nerd-fonts.jetbrains-mono
       obs-studio
+
+      claude-code
    ];
   };
 
