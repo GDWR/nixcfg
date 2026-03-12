@@ -31,7 +31,7 @@
       xclip
       remmina
       pass
-      helvum
+      crosspipe
       nautilus
       easyeffects
       nerd-fonts.jetbrains-mono

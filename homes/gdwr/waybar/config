@@ -69,7 +69,7 @@
       "format-muted": "Muted",
       "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
       "on-click-right": "easyeffects",
-      "on-click-middle": "helvum"
+      "on-click-middle": "crosspipe"
     },
 
     "cpu": {
