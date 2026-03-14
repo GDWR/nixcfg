@@ -9,6 +9,8 @@
       };
       init = { defaultBranch = "main"; };
       pull = { rebase = true; };
+      push = { autoSetupRemote = true; };
+      rebase = { autoStash = true; };
     };
     signing = {
       key = "AA50DFAD8C88A6DE";

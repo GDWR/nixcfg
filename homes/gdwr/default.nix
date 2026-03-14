@@ -38,6 +38,7 @@
       obs-studio
 
       claude-code
+      sox
    ];
   };
 
