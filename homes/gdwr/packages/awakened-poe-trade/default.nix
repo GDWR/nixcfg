@@ -1,11 +1,11 @@
 { appimageTools, fetchurl, ... }:
 let
   pname = "awakened-poe-trade";
-  version = "3.27.106";
+  version = "3.28.103";
 
   src = fetchurl {
-    url = "https://github.com/SnosMe/awakened-poe-trade/releases/download/v3.27.106/Awakened-PoE-Trade-3.27.106.AppImage";
-    sha256 = "sha256-8L5Szn0KYfUMaTe+yyhJV1YZspmJCSlXSHXLPoiRhjE=";
+    url = "https://github.com/SnosMe/awakened-poe-trade/releases/download/v3.28.103/Awakened-PoE-Trade-3.28.103.AppImage";
+    sha256 = "sha256-p/XDWnE9lm/LwT3r/lhQWtEJ3YoaGRFd4Rv7RbdDIeg=";
   };
 
   appimageContents = appimageTools.extract {
