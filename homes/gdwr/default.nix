@@ -1,4 +1,11 @@
-{ config, pkgs, inputs, ... }: {
+{ config, pkgs, inputs, ... }:
+let
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
+{
   imports = [
     ./browser.nix
     ./fish.nix
@@ -37,7 +44,7 @@
       nerd-fonts.jetbrains-mono
       obs-studio
 
-      claude-code
+      pkgs-unstable.claude-code
       sox
    ];
   };
