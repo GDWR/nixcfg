@@ -46,6 +46,9 @@ in
 
       pkgs-unstable.claude-code
       sox
+
+      fd
+      ripgrep
    ];
   };
 

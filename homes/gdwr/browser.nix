@@ -32,7 +32,7 @@
       # Check about:support for extension/add-on ID strings.
       ExtensionSettings = {
         # blocks all addons except the ones specified below
-        "*".installation_mode = "blocked";
+        # "*".installation_mode = "blocked";
       
         "@testpilot-containers" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi";
