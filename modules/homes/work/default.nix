@@ -1,17 +1,21 @@
 { self, inputs, withSystem, ... }: {
-  flake.homeConfigurations.gdwr = withSystem "x86_64-linux" ({ system, ... }:
+  flake.homeConfigurations.work = withSystem "x86_64-linux" ({ system, ... }:
     let
       pkgs = import inputs.nixpkgs {
         inherit system;
-        config.allowUnfree = true;
+        config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
+          "vscode"
+          "rider"
+          "pycharm"
+          "claude-code"
+          "copilot.vim"
+        ];
       };
     in
     inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
       modules = [
-        self.homeModules.hyperland
-        self.homeModules.waybar
         self.homeModules.firefox
         self.homeModules.fish
         self.homeModules.git
@@ -30,17 +34,9 @@
             homeDirectory = "/home/gdwr";
             sessionPath = [ "/home/gdwr/.local/bin" ];
             packages = with pkgs; [
-              vesktop
-              spotify
-              playerctl
               teams-for-linux
-              nix-output-monitor
-              xclip
               remmina
-              pass
               crosspipe
-              nautilus
-              easyeffects
               nerd-fonts.jetbrains-mono
               obs-studio
 
@@ -51,9 +47,6 @@
               ripgrep
             ];
           }; 
-
-          programs.browserpass.enable = true;
-          services.easyeffects.enable = true;
 
           # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
           home.stateVersion = "23.05";

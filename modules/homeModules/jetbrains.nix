@@ -12,11 +12,6 @@
 
       jetbrains.pycharm
       python3
-
-      jetbrains.idea
-
-      jetbrains.rust-rover
-      rustup gcc
     ];
   };
 }
