@@ -8,25 +8,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
-      homeConfigurations = {
-        gdwr = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # This should be inherited from the caller machine?
-          extraSpecialArgs = { inherit inputs; };
-          modules = [ 
-            ./homes/gdwr
-          ];
-        };
-      };
-
-      nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [ ./hosts/desktop ];
-        };
-      };
-    };
+  outputs = inputs: 
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } 
+    (inputs.import-tree ./modules);
 }
