@@ -7,33 +7,19 @@
       self.nixosModules.audio
       self.nixosModules.bootloader
       self.nixosModules.gaming
+      self.nixosModules.hyprland
       self.nixosModules.shell
       self.nixosModules.virtualisation
+    ];
+
+    gdwr.hyprland.monitors = [
+      "DP-4, 2560x1440@165, auto-left, 1"
+      "DP-5, 2560x1440@165, auto-right, 1"
     ];
 
     programs.gnupg.agent.enable = true;
 
     services.gnome.gnome-keyring.enable = true;
-
-    programs.hyprland = {
-      enable = true;
-      withUWSM = false;
-    };
-
-    environment.systemPackages = with pkgs; [
-      kitty
-      rofi
-      waybar
-      hyprpaper
-      hyprpicker
-      hyprshot
-      hyprlock
-      wl-clipboard
-    ];
-
-    services.displayManager.defaultSession = "hyprland";
-    services.displayManager.gdm.enable = true;
-    services.xserver.enable = true;
 
 
     nix = {

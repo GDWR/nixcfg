@@ -10,7 +10,7 @@
       inherit pkgs;
 
       modules = [
-        self.homeModules.hyperland
+        self.homeModules.theme
         self.homeModules.waybar
         self.homeModules.firefox
         self.homeModules.fish
