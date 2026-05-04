@@ -7,6 +7,7 @@
       self.nixosModules.audio
       self.nixosModules.gaming
       self.nixosModules.hyprland
+      self.nixosModules.waybar
       self.nixosModules.shell
       self.nixosModules.virtualisation
     ];

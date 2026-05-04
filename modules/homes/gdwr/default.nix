@@ -11,7 +11,6 @@
 
       modules = [
         self.homeModules.theme
-        self.homeModules.waybar
         self.homeModules.firefox
         self.homeModules.fish
         self.homeModules.git

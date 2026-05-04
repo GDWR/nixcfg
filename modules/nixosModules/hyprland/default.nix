@@ -27,7 +27,6 @@
         environment.systemPackages = with pkgs; [
           kitty
           rofi
-          waybar
           hyprpaper
           hyprpicker
           hyprshot
