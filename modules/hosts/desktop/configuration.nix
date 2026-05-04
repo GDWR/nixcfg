@@ -5,12 +5,17 @@
     imports = [
       self.nixosModules.desktopHardware
       self.nixosModules.audio
-      self.nixosModules.bootloader
       self.nixosModules.gaming
       self.nixosModules.hyprland
       self.nixosModules.shell
       self.nixosModules.virtualisation
     ];
+
+    boot.loader.systemd-boot = {
+      enable = true;
+      configurationLimit = 10;
+      memtest86.enable = true;
+    };
 
     gdwr.hyprland.monitors = [
       "DP-4, 2560x1440@165, auto-left, 1"
