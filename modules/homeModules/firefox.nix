@@ -24,6 +24,7 @@
           "devtools.storage.enabled" = false;
           "devtools.styleeditor.enabled" = false;
           "devtools.toolbox.tabsOrder" = "inspector,netmonitor,webconsole";
+          "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
         };
       };
 
