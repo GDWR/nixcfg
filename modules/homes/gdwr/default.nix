@@ -5,6 +5,10 @@
         inherit system;
         config.allowUnfree = true;
       };
+      pkgs-unstable = import inputs.nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
@@ -43,7 +47,7 @@
               nerd-fonts.jetbrains-mono
               obs-studio
 
-              claude-code
+              pkgs-unstable.claude-code
               sox
 
               fd
