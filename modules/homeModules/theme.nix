@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.homeModules.theme = { pkgs, lib, ... }: {
+  flake.homeModules.theme = { config, pkgs, lib, ... }: {
     home.pointerCursor = {
       gtk.enable = true;
       # x11.enable = true;
@@ -11,6 +11,7 @@
     gtk = {
       enable = true;
 
+      gtk4.theme = config.gtk.theme;
       theme = {
         package = pkgs.flat-remix-gtk;
         name = "Flat-Remix-GTK-Grey-Darkest";

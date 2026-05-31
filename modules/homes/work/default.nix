@@ -50,6 +50,10 @@
 
           # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
           home.stateVersion = "23.05";
+
+          # We intentionally track nixpkgs nixos-unstable + home-manager master,
+          # whose version strings drift apart; skip the release-match check.
+          home.enableNixpkgsReleaseCheck = false;
         }
       ];
     });
