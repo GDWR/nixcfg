@@ -39,6 +39,11 @@
 
         networking.hostName = "desktop";
 
+        # WireGuard client tooling (provides `wg` and `wg-quick`). No tunnel is
+        # declared here on purpose — bring connections up ad-hoc via the CLI
+        # (`sudo wg-quick up <conf>`) or a GUI. The kernel module is in-tree.
+        environment.systemPackages = with pkgs; [ wireguard-tools ];
+
         boot.tmp.cleanOnBoot = true;
 
         users.users = {
