@@ -40,7 +40,7 @@
               nerd-fonts.jetbrains-mono
               obs-studio
 
-              claude-code
+              self.packages.${system}.claude-code
               sox
 
               fd
