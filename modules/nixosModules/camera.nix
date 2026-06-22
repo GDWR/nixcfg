@@ -12,10 +12,17 @@
         { name = "exposure_time_absolute"; value = cam.exposureTimeAbsolute; }
       ];
 
-      # Shell lines that set every configured control on $dev.
-      applyControls = cam: lib.concatMapStringsSep "\n"
-        (c: ''${pkgs.v4l-utils}/bin/v4l2-ctl -d "$dev" --set-ctrl=${c.name}=${toString c.value} || true'')
-        (controlsFor cam);
+      # Set every configured control in a single v4l2-ctl call (one device
+      # open). Setting controls on an actively-streaming UVC device stalls the
+      # stream, so opening it once rather than once-per-control avoids lag.
+      # Controls are comma-separated and applied left-to-right, preserving the
+      # required order (auto_exposure before exposure_time_absolute).
+      applyControls = cam:
+        let ctrls = controlsFor cam;
+        in lib.optionalString (ctrls != [ ]) ''
+          ${pkgs.v4l-utils}/bin/v4l2-ctl -d "$dev" --set-ctrl=${
+            lib.concatMapStringsSep "," (c: "${c.name}=${toString c.value}") ctrls
+          } || true'';
 
       # Stable, renumber-proof path for the matched device.
       linkFor = name: "camera-${name}";
@@ -28,20 +35,31 @@
             ++ lib.optional (cam.productId != null) ''ATTRS{idProduct}=="${cam.productId}"'';
         in ''${lib.concatStringsSep ", " matchers}, SYMLINK+="${linkFor name}"'';
 
-      # UVC cameras reset their controls to defaults every time an application
+      # UVC cameras reset their controls to defaults whenever an application
       # opens the device (e.g. Teams starting a call), so a one-shot udev RUN
-      # doesn't stick. Instead, watch for open() events and re-apply. Apps may
-      # also clobber the controls shortly after opening, so re-apply a few times.
+      # doesn't stick. Watching open() events and re-applying causes a feedback
+      # loop: our v4l2-ctl access makes PipeWire/WirePlumber re-probe the device,
+      # which we'd see as another open. Instead poll with fuser (which inspects
+      # /proc and does NOT open the device) and apply once when a real consumer
+      # holds it across two consecutive polls — long enough to skip the brief
+      # automatic probes. applied resets when the device goes idle, so the next
+      # consumer re-applies.
       watchScript = name: cam:
         pkgs.writeShellScript "camera-watch-${name}" ''
           dev=/dev/${linkFor name}
+          busyPrev=0
+          applied=0
+          echo "polling $dev for sustained use"
           while true; do
-            if [ ! -e "$dev" ]; then sleep 2; continue; fi
-            ${pkgs.inotify-tools}/bin/inotifywait -qq -e open "$dev" || { sleep 2; continue; }
-            for delay in 0.5 1 2; do
-              sleep "$delay"
+            if ${pkgs.psmisc}/bin/fuser "$dev" >/dev/null 2>&1; then busy=1; else busy=0; fi
+            if [ "$busy" = 1 ] && [ "$busyPrev" = 1 ] && [ "$applied" = 0 ]; then
               ${applyControls cam}
-            done
+              applied=1
+              echo "consumer using $dev; controls applied"
+            fi
+            [ "$busy" = 0 ] && applied=0
+            busyPrev=$busy
+            sleep ${toString cam.pollSeconds}
           done
         '';
     in {
@@ -49,9 +67,9 @@
         default = { };
         description = ''
           v4l2 cameras to configure. Each entry creates a stable /dev symlink
-          for the matching device and a service that re-applies the given
-          controls whenever the device is opened (UVC cameras reset controls
-          to defaults on every open). Controls left unset (null) are omitted.
+          for the matching device and a service that applies the given controls
+          once a consumer starts using it (UVC cameras reset controls to
+          defaults on open). Controls left unset (null) are omitted.
         '';
         example = lib.literalExpression ''
           {
@@ -97,6 +115,16 @@
               default = null;
               description = "exposure_time_absolute ctrl (in 100 µs units).";
             };
+            pollSeconds = lib.mkOption {
+              type = lib.types.int;
+              default = 2;
+              description = ''
+                How often (seconds) to poll whether a consumer is using the
+                device. A consumer must be present for two consecutive polls
+                before controls are applied, so this also sets how long a use
+                must last to count (vs. brief automatic probes).
+              '';
+            };
           };
         });
       };
@@ -107,7 +135,7 @@
 
         systemd.services = lib.mapAttrs' (name: cam:
           lib.nameValuePair "camera-controls-${name}" {
-            description = "Re-apply v4l2 controls to camera '${name}' on open";
+            description = "Apply v4l2 controls to camera '${name}' when in use";
             wantedBy = [ "multi-user.target" ];
             serviceConfig = {
               ExecStart = watchScript name cam;
