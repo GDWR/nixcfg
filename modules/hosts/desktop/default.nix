@@ -8,7 +8,6 @@
       self.nixosModules.shell
       self.nixosModules.virtualisation
       self.nixosModules.desktopHardware
-      self.nixosModules.camera
 
       ({ pkgs, ... }: {
         boot.loader.systemd-boot = {
@@ -57,13 +56,6 @@
 
         programs.nix-ld.enable = true;
         services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
-
-        gdwr.cameras.webcam = {
-          index = 0;
-          autoExposure = 1;
-          powerLineFrequency = 1;
-          exposureTimeAbsolute = 30;
-        };
 
         services.mullvad-vpn = {
           enable = true;
