@@ -59,7 +59,7 @@
 
         services.mullvad-vpn = {
           enable = true;
-          package = pkgs.mullvad-vpn;
+          gui.enable = true;
         };
 
         # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
