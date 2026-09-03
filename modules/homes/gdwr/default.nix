@@ -21,7 +21,6 @@
         self.homeModules.vscode
 
         {
-          programs.google-chrome.enable = true;
           programs.home-manager.enable = true;
 
           home.file.".background".source = ../../../assets/firewatch.jpg;
