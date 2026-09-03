@@ -45,6 +45,19 @@
         environment.etc."hypr/hyprpaper.conf".source = ./hyprpaper.conf;
 
         environment.sessionVariables.HYPRLAND_CONFIG = "/etc/hypr/hyprland.conf";
+
+        # xdg-desktop-portal >= 1.22 refuses to start unless
+        # graphical-session.target is active, and Hyprland without UWSM never
+        # activates it. That target is RefuseManualStart, so bind it to a
+        # session target Hyprland can start itself (see exec-once in
+        # hyprland.conf). Without this, screen sharing has no ScreenCast portal.
+        systemd.user.targets.hyprland-session = {
+          description = "Hyprland compositor session";
+          documentation = [ "man:systemd.special(7)" ];
+          bindsTo = [ "graphical-session.target" ];
+          wants = [ "graphical-session-pre.target" ];
+          after = [ "graphical-session-pre.target" ];
+        };
       };
     };
 }

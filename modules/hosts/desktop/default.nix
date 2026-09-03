@@ -27,8 +27,8 @@
 
 
         nix = {
-          optimise.automatic = true;
-          gc.automatic = true;
+          optimise.automatic = false;
+          gc.automatic = false;
           settings = {
             experimental-features = "nix-command flakes";
             auto-optimise-store = true;
