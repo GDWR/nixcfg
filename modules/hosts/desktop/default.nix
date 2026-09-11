@@ -55,6 +55,9 @@
         };
 
         programs.nix-ld.enable = true;
+        programs.nix-ld.libraries = with pkgs; [
+          icu
+        ];
         services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
 
         services.mullvad-vpn = {
