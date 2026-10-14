@@ -25,7 +25,12 @@
       enableTransience = true;
     };
 
-    programs.direnv.enable = true;
+    programs.direnv = { 
+      enable = true;
+      enableFishIntegration = true;
+      nix-direnv.enable = true;
+      silent = true;
+    };
 
     home.packages = with pkgs; [
       btop
