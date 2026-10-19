@@ -4,7 +4,6 @@
       pkgs = import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [ self.overlays.pnpm-insecure ];
       };
     in
     inputs.home-manager.lib.homeManagerConfiguration {
