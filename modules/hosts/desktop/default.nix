@@ -16,8 +16,8 @@
         };
 
         gdwr.hyprland.monitors = [
-          "DP-4, 2560x1440@165, auto-left, 1"
-          "DP-5, 2560x1440@165, auto-right, 1"
+          "desc:Microstep MSI G27CQ4 0x000000C4, 2560x1440@165, auto-left, 1"
+          "desc:Microstep MAG274QRF-QD CA8A393900098, 2560x1440@165, auto-right, 1"
         ];
 
         programs.gnupg.agent.enable = true;
