@@ -1,14 +1,15 @@
 { ... }: {
-  perSystem = { pkgs, ... }:
+  perSystem = { pkgs, self', ... }:
     let
-      # Runs every package's update.sh, updates flake.lock, then switches the
-      # NixOS system and home-manager configs. Works on the checkout rather than
-      # the store copy of this flake, as the updates write back into it.
+      # Runs every package's update.sh and updates flake.lock, then hands off to
+      # system-rebuild to switch the NixOS system and home-manager configs. Works
+      # on the checkout rather than the store copy of this flake, as the updates
+      # write back into it.
       system-update =
-        { writeShellApplication, nix-output-monitor, ... }:
+        { writeShellApplication, system-rebuild, ... }:
         writeShellApplication {
           name = "system-update";
-          runtimeInputs = [ nix-output-monitor ];
+          runtimeInputs = [ system-rebuild ];
           text = ''
             cd "''${NIXCFG:-$HOME/Repos/nixcfg}"
 
@@ -20,14 +21,13 @@
 
             nix flake update
 
-            # Prompt for the password now, before nom takes over the terminal.
-            sudo -v
-            sudo nixos-rebuild switch --flake . --log-format internal-json -v |& nom --json
-            home-manager switch --flake . --log-format internal-json -v |& nom --json
+            system-rebuild
           '';
         };
     in
     {
-      packages.system-update = pkgs.callPackage system-update { };
+      packages.system-update = pkgs.callPackage system-update {
+        inherit (self'.packages) system-rebuild;
+      };
     };
 }

@@ -40,6 +40,7 @@
 
         environment.systemPackages = with pkgs; [
           self.packages.${stdenv.hostPlatform.system}.system-update
+          self.packages.${stdenv.hostPlatform.system}.system-rebuild
           self.packages.${stdenv.hostPlatform.system}.system-clean
         ];
 
