@@ -2,15 +2,25 @@
   flake.nixosModules.hyprland = { config, pkgs, lib, ... }:
     let
       cfg = config.gdwr.hyprland;
-      monitorLines = lib.concatMapStringsSep "\n" (m: "monitor=${m}") cfg.monitors;
+      monitorLine = m:
+        let
+          fields = map lib.trim (lib.splitString "," m);
+          keys = [ "output" "mode" "position" "scale" ];
+        in
+        "hl.monitor({ "
+        + lib.concatStringsSep ", "
+          (lib.zipListsWith (k: v: "${k} = ${builtins.toJSON v}") keys fields)
+        + " })";
+      monitorLines = lib.concatMapStringsSep "\n" monitorLine cfg.monitors;
     in {
       options.gdwr.hyprland.monitors = lib.mkOption {
         type = lib.types.listOf lib.types.str;
         default = [ ];
         example = [ "DP-1, 2560x1440@165, auto, 1" ];
         description = ''
-          Hyprland monitor configuration lines. Each entry is the value that
-          follows `monitor=` in hyprland.conf.
+          Hyprland monitor configuration lines in the legacy
+          `output, mode, position, scale` form. Each entry is turned into an
+          `hl.monitor({ ... })` call in hyprland.lua.
         '';
       };
 
@@ -39,18 +49,18 @@
           wl-clipboard
         ];
 
-        environment.etc."hypr/hyprland.conf".text =
-          monitorLines + "\n\n" + builtins.readFile ./hyprland.conf;
+        environment.etc."hypr/hyprland.lua".text =
+          monitorLines + "\n\n" + builtins.readFile ./hyprland.lua;
         environment.etc."hypr/hyprlock.conf".source = ./hyprlock.conf;
         environment.etc."hypr/hyprpaper.conf".source = ./hyprpaper.conf;
 
-        environment.sessionVariables.HYPRLAND_CONFIG = "/etc/hypr/hyprland.conf";
+        environment.sessionVariables.HYPRLAND_CONFIG = "/etc/hypr/hyprland.lua";
 
         # xdg-desktop-portal >= 1.22 refuses to start unless
         # graphical-session.target is active, and Hyprland without UWSM never
         # activates it. That target is RefuseManualStart, so bind it to a
-        # session target Hyprland can start itself (see exec-once in
-        # hyprland.conf). Without this, screen sharing has no ScreenCast portal.
+        # session target Hyprland can start itself (see the hyprland.start
+        # handler in hyprland.lua). Without this, screen sharing has no ScreenCast portal.
         systemd.user.targets.hyprland-session = {
           description = "Hyprland compositor session";
           documentation = [ "man:systemd.special(7)" ];
