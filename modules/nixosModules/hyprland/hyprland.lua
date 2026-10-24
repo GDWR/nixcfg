@@ -1,7 +1,7 @@
 local terminal    = "kitty"
 local browser     = "firefox"
 local fileManager = "nautilus"
-local menu        = "rofi -show drun -theme arthur"
+local menu        = "vicinae toggle"
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user start hyprland-session.target")

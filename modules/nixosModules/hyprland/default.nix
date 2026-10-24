@@ -41,7 +41,6 @@
 
         environment.systemPackages = with pkgs; [
           kitty
-          rofi
           hyprpaper
           hyprpicker
           hyprshot

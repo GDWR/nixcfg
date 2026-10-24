@@ -17,6 +17,7 @@
         self.homeModules.jetbrains
         self.homeModules.neovim
         self.homeModules.tmux
+        self.homeModules.vicinae
         self.homeModules.vscode
 
         {
