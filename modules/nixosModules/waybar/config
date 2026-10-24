@@ -86,8 +86,8 @@
 	  "unit": "GB",
       "on-click": "kitty ncdu --exclude-kernfs --exclude /nix /",
       "states": {
-        "warning": 360,
-        "critical": 420
+        "warning": 70,
+        "critical": 90
       }
     },
 
