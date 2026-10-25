@@ -9,7 +9,11 @@
       self.nixosModules.virtualisation
       self.nixosModules.desktopHardware
 
+      # Carbon included
+      self.nixosModules.systemHelpers
+
       ({ pkgs, ... }: {
+        carbon.systemHelpers.flakePath = "$HOME/Repos/nixcfg";
         boot.loader.systemd-boot = {
           enable = true;
           configurationLimit = 10;
@@ -37,13 +41,6 @@
         nixpkgs.config.allowUnfree = true;
 
         networking.hostName = "desktop";
-
-        environment.systemPackages = with pkgs; [
-          self.packages.${stdenv.hostPlatform.system}.system-update
-          self.packages.${stdenv.hostPlatform.system}.system-rebuild
-          self.packages.${stdenv.hostPlatform.system}.system-clean
-        ];
-
         boot.tmp.cleanOnBoot = true;
 
         users.users = {

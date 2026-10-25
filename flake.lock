@@ -1,5 +1,34 @@
 {
   "nodes": {
+    "carbon": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "home-manager": [
+          "home-manager"
+        ],
+        "import-tree": [
+          "import-tree"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792952740,
+        "narHash": "sha256-GAycAACPfSrOhDh2YRkpNLF9+fVzGNPWQk+if8Ek9jc=",
+        "ref": "refs/heads/main",
+        "rev": "09b5983b0711d71be910ec5cce24bef9af678dcc",
+        "revCount": 13,
+        "type": "git",
+        "url": "ssh://git@github.com/owl-corp/carbon"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/owl-corp/carbon"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -86,6 +115,7 @@
     },
     "root": {
       "inputs": {
+        "carbon": "carbon",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
