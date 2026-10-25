@@ -4,7 +4,11 @@ local fileManager = "nautilus"
 local menu        = "vicinae toggle"
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("systemctl --user start hyprland-session.target")
+    -- Hyprland only imports DISPLAY/WAYLAND_DISPLAY/etc. into the systemd user
+    -- env. Apps started from systemd services (e.g. vicinae) also need
+    -- XDG_SESSION_TYPE, or Electron falls back to XWayland and screen sharing
+    -- captures a black screen.
+    hl.exec_cmd("systemctl --user import-environment XDG_SESSION_TYPE && systemctl --user start hyprland-session.target")
     hl.exec_cmd("waybar")
     hl.exec_cmd("hyprpaper --config /etc/hypr/hyprpaper.conf")
 end)
