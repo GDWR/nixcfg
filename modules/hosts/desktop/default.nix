@@ -10,7 +10,7 @@
       self.nixosModules.desktopHardware
 
       # Carbon included
-      self.nixosModules.systemHelpers
+      inputs.carbon.nixosModules.systemHelpers
 
       ({ pkgs, ... }: {
         carbon.systemHelpers.flakePath = "$HOME/Repos/nixcfg";

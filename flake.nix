@@ -23,7 +23,6 @@
   outputs = inputs: 
     inputs.flake-parts.lib.mkFlake { inherit inputs; }  {
       imports = [
-        inputs.carbon.flakeModules.default
         (inputs.import-tree ./modules)
       ];
     };

@@ -16,11 +16,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792952740,
-        "narHash": "sha256-GAycAACPfSrOhDh2YRkpNLF9+fVzGNPWQk+if8Ek9jc=",
+        "lastModified": 1792959469,
+        "narHash": "sha256-HIFhwzUs18qCNhTd3TsRL8uD6gf2b4JzcT0iIKj3Z0Q=",
         "ref": "refs/heads/main",
-        "rev": "09b5983b0711d71be910ec5cce24bef9af678dcc",
-        "revCount": 13,
+        "rev": "1608e2f23c5f628e3593efc99da56b1af19866f8",
+        "revCount": 19,
         "type": "git",
         "url": "ssh://git@github.com/owl-corp/carbon"
       },
