@@ -11,6 +11,9 @@
         # Hyprland owns the launcher keybind (see hyprland.lua), so drop
         # vicinae's own global toggle shortcut.
         global_shortcuts.toggle = "";
+
+        tray.enabled = false;
+        launcher_window.client_side_decorations.enabled = true;
       };
     };
   };
