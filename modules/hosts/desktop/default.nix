@@ -18,6 +18,7 @@
           enable = true;
           configurationLimit = 10;
         };
+        boot.loader.efi.canTouchEfiVariables = true;
 
         gdwr.hyprland.monitors = [
           "desc:Microstep MSI G27CQ4 0x000000C4, 2560x1440@165, auto-left, 1"
