@@ -1,5 +1,20 @@
 { self, inputs, ... }: {
   flake.homeModules.firefox = { config, pkgs, lib, ... }: {
+    # Chrome (installed alongside) registers itself as the default handler,
+    # and ~/.config/mimeapps.list pointed at an uninstalled browser (zen).
+    xdg.mimeApps = {
+      enable = true;
+      defaultApplications = lib.genAttrs [
+        "text/html"
+        "application/xhtml+xml"
+        "x-scheme-handler/http"
+        "x-scheme-handler/https"
+        "x-scheme-handler/about"
+        "x-scheme-handler/unknown"
+      ] (_: "firefox.desktop");
+    };
+    xdg.configFile."mimeapps.list".force = true;
+
     programs.firefox = {
       enable = true;
       configPath = "${config.xdg.configHome}/mozilla/firefox";

@@ -46,9 +46,12 @@
 
               self.packages.${system}.claude-code
               sox
-
               fd
               ripgrep
+
+              google-chrome
+              gh
+              jq
             ];
           }; 
 

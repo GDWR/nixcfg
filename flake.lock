@@ -5,9 +5,6 @@
         "flake-parts": [
           "flake-parts"
         ],
-        "home-manager": [
-          "home-manager"
-        ],
         "import-tree": [
           "import-tree"
         ],
@@ -16,11 +13,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792959469,
-        "narHash": "sha256-HIFhwzUs18qCNhTd3TsRL8uD6gf2b4JzcT0iIKj3Z0Q=",
+        "lastModified": 1793052949,
+        "narHash": "sha256-Q9hDy+qB53ldxJUnEqnldKjHlJLTiCCqvvmjKDP143U=",
         "ref": "refs/heads/main",
-        "rev": "1608e2f23c5f628e3593efc99da56b1af19866f8",
-        "revCount": 19,
+        "rev": "2e2ba5004aa573eb9e765deb2a9432db4202166a",
+        "revCount": 22,
         "type": "git",
         "url": "ssh://git@github.com/owl-corp/carbon"
       },
@@ -54,11 +51,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792896866,
-        "narHash": "sha256-/0tELNnhdSnP+bHSdWiEe6KpfSwi6WrTnT9cm/jNkjA=",
+        "lastModified": 1793193205,
+        "narHash": "sha256-X6xa6sGA7RnJQuZGbFMC+K+KToWAlBDCCjJXfTwEPsw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c216bf5a1f173b0481bd5c8c489ebe5595ecc68c",
+        "rev": "095fef2f265c3c0da4fe315efba8f8a04495ab34",
         "type": "github"
       },
       "original": {
@@ -84,11 +81,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1792773339,
-        "narHash": "sha256-rZLrzrC6i+jnTAlvPZHogKDulY7WWDEv9hJeHieO7Zw=",
+        "lastModified": 1793110635,
+        "narHash": "sha256-dhoW6VgFWlaodSY5jrBn+CF2FLmaUvDVgM7+C7T2+NM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3ec636362e1816bc2f0888fa0fa2c69f1bc9e504",
+        "rev": "31ecbaca1bdefa45dffc409f0250bd8039ea0010",
         "type": "github"
       },
       "original": {
